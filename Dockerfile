@@ -1,6 +1,6 @@
-FROM nginx:1.13.1-alpine
+FROM nginx:1.17.1-alpine
 
-EXPOSE 80
 
-COPY dist /var/www
+COPY dist/ant-app /var/www
 COPY config/nginx.conf /etc/nginx/nginx.conf
+EXPOSE 8594:80
