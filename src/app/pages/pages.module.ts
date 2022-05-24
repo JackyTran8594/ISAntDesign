@@ -22,7 +22,8 @@ import { IconsProviderModule } from '../icons-provider.module';
     NzMenuModule,
     NzButtonModule,
     NzIconModule,
-    IconsProviderModule
+    IconsProviderModule,
+    
   ],
   providers: [{ provide: NZ_I18N, useValue: vi_VN }],
 })
