@@ -15,8 +15,11 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { WelcomeFrmComponent } from './welcome-frm/welcome-frm.component';
 import { NzModalModule } from 'ng-zorro-antd/modal';
-
-
+import { NzSpaceModule } from 'ng-zorro-antd/space';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 
 const MODULES = [
   NzCardModule,
@@ -24,9 +27,13 @@ const MODULES = [
   NzButtonModule,
   NzIconModule,
   NzDividerModule,
-  NzModalModule 
+  NzModalModule ,
+  NzSpaceModule,
+  NzInputModule,
+  NzGridModule,
+  NzDatePickerModule,
+  NzCollapseModule
 ]
-
 
 
 @NgModule({

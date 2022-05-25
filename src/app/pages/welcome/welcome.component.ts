@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { NzTrMeasureComponent } from 'ng-zorro-antd/table';
 import { ItemData } from './service/welcome';
+import { WelcomeFrmComponent } from './welcome-frm/welcome-frm.component';
 
 @Component({
   selector: 'app-welcome',
@@ -65,7 +67,7 @@ export class WelcomeComponent implements OnInit {
     this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
   }
 
-  constructor(private modalService: NzModalService, private modalRef: NzModalRef) { }
+  constructor(private modalService: NzModalService) { }
 
   ngOnInit() {
     this.listOfData = new Array(200).fill(0).map((_, index) => ({
@@ -77,7 +79,18 @@ export class WelcomeComponent implements OnInit {
   }
 
   onEdit(): void {
-    
+
+  }
+
+  onCreate(): void {
+    this.modalService.create(
+      {
+        nzTitle: 'Add Item',
+        nzContent: WelcomeFrmComponent,
+        nzCentered: true,
+        nzMaskClosable: false
+      }
+    )
   }
 
 }

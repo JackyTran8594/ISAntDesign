@@ -4,3 +4,10 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+// ng-zorro
+@import "~ng-zorro-antd/ng-zorro-antd.min.css";
+
+.cdk-global-scrollblock {
+    overflow: hidden;
+}

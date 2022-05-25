@@ -15,9 +15,6 @@ export class WelcomeFrmComponent implements OnInit {
   isVisible = false;
   isConfirmLoading = false;
 
-  showModal(): void {
-    this.isVisible = true;
-  }
 
   handleOk(): void {
     this.isConfirmLoading = true;
