@@ -11,14 +11,12 @@
 
 ::ng-deep .card-custom nz-table {
   @apply sm:max-h-full sm:max-w-full;
-  
-  // @apply h-80;
 }
 
 ::ng-deep [nz-col] .table-custom {
   @apply table-auto border-collapse;
 }
 
-::ng-deep .table-custom > nz-table [class*="ant-table-body ng-star-inserted"] {
-  overflow-x: hidden;
+::ng-deep .table-custom>nz-table [class*="ant-table-body ng-star-inserted"] nz-table-content {
+  @apply overflow-x-hidden w-full;
 }

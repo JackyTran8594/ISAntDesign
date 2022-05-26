@@ -9,11 +9,17 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NZ_I18N, vi_VN } from 'ng-zorro-antd/i18n';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconsProviderModule } from '../icons-provider.module';
+import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzAvatarModule } from 'ng-zorro-antd/avatar';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 
 @NgModule({
   declarations: [
-    PagesComponent
+    PagesComponent,
+    BreadcrumbComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +29,10 @@ import { IconsProviderModule } from '../icons-provider.module';
     NzButtonModule,
     NzIconModule,
     IconsProviderModule,
-    
+    NzBreadCrumbModule,
+    NzGridModule,
+    NzAvatarModule,
+    NzDropDownModule
   ],
   providers: [{ provide: NZ_I18N, useValue: vi_VN }],
 })
