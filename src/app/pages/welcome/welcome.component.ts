@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { NzTrMeasureComponent } from 'ng-zorro-antd/table';
+import { DeleteComponent } from 'src/app/shared/component/delete/delete.component';
 import { ItemData } from './service/welcome';
 import { WelcomeFrmComponent } from './welcome-frm/welcome-frm.component';
 
@@ -12,6 +14,10 @@ import { WelcomeFrmComponent } from './welcome-frm/welcome-frm.component';
 export class WelcomeComponent implements OnInit {
 
   isCollapse: boolean = false;
+
+  modalOptions: any = {
+    nzDuration: 2000
+  }
 
   listOfSelection = [
     {
@@ -69,7 +75,7 @@ export class WelcomeComponent implements OnInit {
     this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
   }
 
-  constructor(private modalService: NzModalService) { }
+  constructor(private modalService: NzModalService, private notifyService: NzNotificationService) { }
 
   ngOnInit() {
     this.listOfData = new Array(200).fill(0).map((_, index) => ({
@@ -92,6 +98,19 @@ export class WelcomeComponent implements OnInit {
       nzMaskClosable: false,
       nzComponentParams: {
         isUpdate: true
+      },
+      nzDirection: 'ltr' // left to right
+    }).afterClose.subscribe({
+      next: (res) => {
+        console.log(res);
+        this.notifyService.success('Success', 'Success', this.modalOptions);
+        if (res) {
+          this.notifyService.success('Success', 'Success', this.modalOptions);
+        }
+
+      },
+      error: (res) => {
+        console.log(res);
       }
     })
 
@@ -105,12 +124,10 @@ export class WelcomeComponent implements OnInit {
       nzMaskClosable: false,
       nzComponentParams: {
         isView: true
-      }
+      },
+      nzDirection: 'ltr' // left to right
     })
-
   }
-
-
 
   onCreate(): void {
     this.modalService.create(
@@ -121,9 +138,47 @@ export class WelcomeComponent implements OnInit {
         nzMaskClosable: false,
         nzComponentParams: {
           isCreate: true,
-        }
+        },
+        nzDirection: 'ltr' // left to right
       }
-    )
+    ).afterClose.subscribe
+      (
+        {
+          next: (res) => {
+            console.log(res);
+            if (res) {
+              this.notifyService.success('Success', 'Success', this.modalOptions);
+            }
+
+          },
+          error: (res) => {
+            console.log(res);
+          }
+        }
+      )
+  }
+
+  onDelete(): void {
+    this.modalService.create(
+      {
+        nzTitle: 'Delete Item',
+        nzContent: DeleteComponent,
+        nzCentered: true,
+        nzMaskClosable: false,
+        nzDirection: 'ltr' // left to right
+      }
+    ).afterClose.subscribe({
+      next: (res) => {
+        console.log(res);
+        if (res) {
+          this.notifyService.success('Success', 'Success', this.modalOptions);
+        }
+
+      },
+      error: (res) => {
+        console.log(res);
+      }
+    })
   }
 
 }

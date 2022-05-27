@@ -35,14 +35,15 @@
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
-  background: #001529;
+  // background: #001529;
+  background: white;
   transition: all .3s;
 }
 
 .sidebar-logo img {
   display: inline-block;
   height: 32px;
-  width: 32px;
+  width: 102px;
   vertical-align: middle;
 }
 

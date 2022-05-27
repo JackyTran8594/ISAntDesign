@@ -14,6 +14,7 @@ import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
     NzBreadCrumbModule,
     NzGridModule,
     NzAvatarModule,
-    NzDropDownModule
+    NzDropDownModule,
+    SharedModule
   ],
   providers: [{ provide: NZ_I18N, useValue: vi_VN }],
 })
