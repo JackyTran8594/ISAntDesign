@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-welcome-frm',
@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./welcome-frm.component.scss']
 })
 export class WelcomeFrmComponent implements OnInit {
+
+  @Input() isUpdate: boolean = false;
+  @Input() isView: boolean = false;
+  @Input() isCreate: boolean = false;
 
   constructor() { }
 

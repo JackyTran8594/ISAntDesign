@@ -3,20 +3,39 @@
   margin-bottom: 12px;
 }
 
+.content-wrapper {
+  @apply flex flex-col;
+}
+
+.content-wrapper .content-row {
+  @apply mb-2;
+}
 
 .card-custom {
   @apply h-full w-full;
-  // @apply 
 }
 
 ::ng-deep .card-custom nz-table {
   @apply sm:max-h-full sm:max-w-full;
 }
 
-::ng-deep [nz-col] .table-custom {
-  @apply table-auto border-collapse;
+.outer-table {
+  @apply min-w-full h-full;
 }
 
-::ng-deep .table-custom>nz-table [class*="ant-table-body ng-star-inserted"] nz-table-content {
-  @apply overflow-x-hidden w-full;
+.content-table-custom {
+  @apply min-w-full sm:h-56 md:h-60 border text-center;
+  @apply overflow-y-auto;
+}
+
+.date-picker-custom nz-date-picker {
+  @apply mr-2;
+}
+
+.table-col {
+  @apply text-sm px-6 py-4 border-r;
+}
+
+.table-col-last {
+  @apply text-sm px-6 py-4 ;
 }

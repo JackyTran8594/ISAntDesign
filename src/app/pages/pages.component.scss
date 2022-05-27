@@ -92,3 +92,8 @@ nz-content {
 .user-menu {
   @apply top-[10px];
 }
+
+.page-content-custom {
+  @apply w-full h-full; 
+  @apply flex flex-col;
+}

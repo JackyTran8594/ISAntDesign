@@ -11,6 +11,8 @@ import { WelcomeFrmComponent } from './welcome-frm/welcome-frm.component';
 })
 export class WelcomeComponent implements OnInit {
 
+  isCollapse: boolean = false;
+
   listOfSelection = [
     {
       text: 'Select All Row',
@@ -78,9 +80,37 @@ export class WelcomeComponent implements OnInit {
     }));
   }
 
-  onEdit(): void {
+  collapse() {
+    this.isCollapse = !this.isCollapse;
+  }
+
+  onUpdate(): void {
+    this.modalService.create({
+      nzTitle: 'Edit Item',
+      nzContent: WelcomeFrmComponent,
+      nzCentered: true,
+      nzMaskClosable: false,
+      nzComponentParams: {
+        isUpdate: true
+      }
+    })
 
   }
+
+  onView(): void {
+    this.modalService.create({
+      nzTitle: 'View Item',
+      nzContent: WelcomeFrmComponent,
+      nzCentered: true,
+      nzMaskClosable: false,
+      nzComponentParams: {
+        isView: true
+      }
+    })
+
+  }
+
+
 
   onCreate(): void {
     this.modalService.create(
@@ -88,7 +118,10 @@ export class WelcomeComponent implements OnInit {
         nzTitle: 'Add Item',
         nzContent: WelcomeFrmComponent,
         nzCentered: true,
-        nzMaskClosable: false
+        nzMaskClosable: false,
+        nzComponentParams: {
+          isCreate: true,
+        }
       }
     )
   }
