@@ -10,7 +10,7 @@
           <img src="/assets/images/Logo-ANSV.png" alt="logo" >
         </a>
       </div>
-      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+      <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
         <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
           <ul>
             <li nz-menu-item nzMatchRouter>
@@ -54,17 +54,29 @@
     </nz-sider>
     <nz-layout>
       <nz-header>
-        <div class="app-header">
-          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
-              <i class="trigger"
-                 nz-icon
-                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-              ></i>
-          </span>
+        <div nz-row class="app-header">
+          <div nz-col [nzSpan]="12">
+            <span class="header-trigger" (click)="sidebarCollapse()">
+              <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+            </span>
+          </div>
+  
+          <div nz-col [nzSpan]="6" [nzOffset]="6">
+            <a class="user-info" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+              <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
+            </a>
+            <nz-dropdown-menu #menu="nzDropdownMenu">
+              <ul nz-menu class="user-menu">
+                <li nz-menu-item>Log out</li>
+                <li nz-menu-item>User Information</li>
+              </ul>
+            </nz-dropdown-menu>
+          </div>
+  
         </div>
       </nz-header>
       <nz-content>
-        <div class="inner-content">
+        <div class="page-content-custom">
           <div class="breadcrumb-custom">
             <app-breadcrumb></app-breadcrumb>
           </div>

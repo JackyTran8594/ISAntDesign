@@ -35,7 +35,7 @@
     padding-left: 24px;
     overflow: hidden;
     line-height: 64px;
-    background: #001529;
+    background: white;
     transition: all .3s;
   }
   
@@ -87,7 +87,7 @@
 }
 
 .user-info {
-  @apply ml-[240px];
+  @apply ml-[210px];
 }
 
 .user-menu {

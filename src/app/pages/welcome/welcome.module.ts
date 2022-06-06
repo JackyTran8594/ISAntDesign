@@ -20,6 +20,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 import { NzCollapseModule } from 'ng-zorro-antd/collapse';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 
 const MODULES = [
   NzCardModule,
@@ -32,7 +35,10 @@ const MODULES = [
   NzInputModule,
   NzGridModule,
   NzDatePickerModule,
-  NzCollapseModule
+  NzCollapseModule,
+  NzPaginationModule,
+  NzPopconfirmModule,
+  NzNotificationModule
 ]
 
 
