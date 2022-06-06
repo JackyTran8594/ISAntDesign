@@ -1,31 +1,36 @@
 
-    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
-      <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your username!">
-          <nz-input-group nzPrefixIcon="user">
-            <input type="text" nz-input formControlName="userName" placeholder="Username" />
-          </nz-input-group>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your Password!">
-          <nz-input-group nzPrefixIcon="lock">
-            <input type="password" nz-input formControlName="password" placeholder="Password" />
-          </nz-input-group>
-        </nz-form-control>
-      </nz-form-item>
-      <div nz-row class="login-form-margin">
-        <div nz-col [nzSpan]="12">
-          <label nz-checkbox formControlName="remember">
-            <span>Remember me</span>
-          </label>
+   <div class="container">
+     <div class="form-container">
+      <span class="form-title">Login</span>
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input type="text" nz-input formControlName="userName" placeholder=" Username"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input type="password" nz-input formControlName="password" placeholder=" Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <div nz-row class="login-form-margin">
+          <div nz-col [nzSpan]="12">
+            <label nz-checkbox formControlName="remember" class="flex flex-row items-center">
+              <input type="checkbox" style="width: 13px; height: 13px; margin-right: 4px; border-radius: 0;"> <span>Remember me</span>
+            </label>
+          </div>
+          <div nz-col [nzSpan]="12" class="flex justify-end">
+            <a class="login-form-forgot">Forgot password</a>
+          </div>
         </div>
-        <div nz-col [nzSpan]="12">
-          <a class="login-form-forgot">Forgot password</a>
+        <div class="button-container">
+          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
+          <span class="flex justify-center">Or <a class="ml-1">register now!</a></span>
         </div>
-      </div>
-      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log in</button>
-      Or
-      <a>register now!</a>
-    </form>
-  
+      </form>
+     </div>
+   </div>

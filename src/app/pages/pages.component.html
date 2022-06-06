@@ -1,72 +1,73 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar" nzCollapsible nzWidth="256px" nzBreakpoint="md" [(nzCollapsed)]="isCollapsed"
-    [nzTrigger]="null" nzTheme="light">
-    <div class="sidebar-logo">
-      <a routerLink="/" target="_blank">
-        <img src="/assets/images/Logo-ANSV.png" alt="logo" >
-        <!-- <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo"> -->
-      </a>
-    </div>
-    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Monitor</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a>Workplace</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a>Basic Form</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nz-sider>
-  <nz-layout>
-    <nz-header>
-      <div nz-row class="app-header">
-        <div nz-col [nzSpan]="12">
-          <!-- <div class="app-header"> -->
-          <span class="header-trigger" (click)="sidebarCollapse()">
-            <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
+    <nz-sider class="menu-sidebar"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null">
+      <div class="sidebar-logo">
+        <a href="https://ng.ant.design/" target="_blank">
+          <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo">
+          <h1>Ant Design Of Angular</h1>
+        </a>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="welcome">Welcome</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Monitor</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Workplace</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="QL hợp đồng và đơn hàng" nzIcon="QLhợp đồng và đơn hàng">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="contract">Quản lý hợp đồng</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="guarantee">Quản lý bảo lãnh</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="po">Quản lý Đơn hàng (PO)</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="dl">Quản lý Bàn giao (DL)</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="pl">Quản lý Package List (PL)</a>
+            </li>
+          </ul>
+        </li>
+        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a>Basic Form</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
           </span>
         </div>
-
-        <div nz-col [nzSpan]="6" [nzOffset]="6">
-          <a class="user-info" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
-            <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
-          </a>
-          <nz-dropdown-menu #menu="nzDropdownMenu">
-            <ul nz-menu class="user-menu">
-              <li nz-menu-item>Log out</li>
-              <li nz-menu-item>User Information</li>
-            </ul>
-          </nz-dropdown-menu>
-        </div>
-
-      </div>
-
-    </nz-header>
-
-    <nz-content>
-      <div class="page-content-custom">
-        <div class="breadcrumb-custom">
-          <app-breadcrumb></app-breadcrumb>
-        </div>
-
+      </nz-header>
+      <nz-content>
         <div class="inner-content">
           <router-outlet></router-outlet>
         </div>
-      </div>
-
-    </nz-content>
+      </nz-content>
+    </nz-layout>
   </nz-layout>
-</nz-layout>

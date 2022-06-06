@@ -9,18 +9,16 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NZ_I18N, vi_VN } from 'ng-zorro-antd/i18n';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { IconsProviderModule } from '../icons-provider.module';
-import { BreadcrumbComponent } from './component/breadcrumb/breadcrumb.component';
-import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb';
-import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzAvatarModule } from 'ng-zorro-antd/avatar';
-import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
-import { SharedModule } from '../shared/shared.module';
+import { ContractModule } from './ContractAndPO/contract/contract.module';
+import { GuaranteeModule } from './ContractAndPO/guarantee/guarantee.module';
+import { PlModule } from './ContractAndPO/pl/pl.module';
+import { POModule } from './ContractAndPO/po/po.module';
+import { DlModule } from './ContractAndPO/dl/dl.module';
 
 
 @NgModule({
   declarations: [
-    PagesComponent,
-    BreadcrumbComponent,
+    PagesComponent
   ],
   imports: [
     CommonModule,
@@ -30,11 +28,11 @@ import { SharedModule } from '../shared/shared.module';
     NzButtonModule,
     NzIconModule,
     IconsProviderModule,
-    NzBreadCrumbModule,
-    NzGridModule,
-    NzAvatarModule,
-    NzDropDownModule,
-    SharedModule
+    ContractModule,
+    GuaranteeModule,
+    PlModule,
+    POModule,
+    DlModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: vi_VN }],
 })
