@@ -5,17 +5,14 @@
   box-sizing: border-box;
 } */
 
-body {
-  overflow-y: hidden;
-}
-
 .container {
-  @apply bg-gradient-to-br from-red-400 to-blue-500 flex max-w-full min-h-full;
+  @apply bg-gradient-to-br from-red-400 to-blue-500 flex max-w-full h-[100vh];
+  overflow: hidden;
 }
 
 .container .form-container {
   @apply w-[500px] h-[700px] flex flex-col justify-center items-center rounded-xl shadow-xl bg-white;
-  margin: 120px auto;
+  margin: 11px auto;
 }
 
 .container .form-title {
