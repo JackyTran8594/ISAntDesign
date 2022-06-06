@@ -6,13 +6,12 @@
 } */
 
 .container {
-  @apply bg-gradient-to-br from-red-400 to-blue-500 flex max-w-full h-[100vh];
+  @apply bg-gradient-to-br from-red-400 to-blue-500 flex justify-center items-center max-w-full h-[100vh];
   overflow: hidden;
 }
 
 .container .form-container {
-  @apply w-[500px] h-[700px] flex flex-col justify-center items-center rounded-xl shadow-xl bg-white;
-  margin: 11px auto;
+  @apply w-[400px] h-[500px] flex flex-col justify-center items-center rounded-xl shadow-xl bg-white;
 }
 
 .container .form-title {
