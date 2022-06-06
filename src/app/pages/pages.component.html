@@ -21,25 +21,25 @@
             </li>
             <li nz-menu-item nzMatchRouter>
               <a>Workplace</a>
-            </li> 
+            </li>
           </ul>
         </li>
-        <li nz-submenu nzOpen nzTitle="QL hợp đồng và đơn hàng" nzIcon="QLhợp đồng và đơn hàng">
+        <li nz-submenu nzOpen nzTitle="Contract / Purchase Order" nzIcon="appstore">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="contract">Quản lý hợp đồng</a>
+              <a routerLink="contract">Contract Management</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="guarantee">Quản lý bảo lãnh</a>
+              <a routerLink="guarantee">Guarantee Management</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="po">Quản lý Đơn hàng (PO)</a>
+              <a routerLink="po">PO Management</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="dl">Quản lý Bàn giao (DL)</a>
+              <a routerLink="dl">DL Management</a>
             </li>
             <li nz-menu-item nzMatchRouter>
-              <a routerLink="pl">Quản lý Package List (PL)</a>
+              <a routerLink="pl">PL Management</a>
             </li>
           </ul>
         </li>
@@ -60,7 +60,7 @@
               <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
             </span>
           </div>
-  
+
           <div nz-col [nzSpan]="6" [nzOffset]="6">
             <a class="user-info" nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
               <nz-avatar nzSize="large" nzIcon="user"></nz-avatar>
@@ -72,7 +72,7 @@
               </ul>
             </nz-dropdown-menu>
           </div>
-  
+
         </div>
       </nz-header>
       <nz-content>
@@ -80,7 +80,7 @@
           <div class="breadcrumb-custom">
             <app-breadcrumb></app-breadcrumb>
           </div>
-  
+
           <div class="inner-content">
             <router-outlet></router-outlet>
           </div>
