@@ -4,7 +4,6 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { DeleteComponent } from 'src/app/shared/component/delete/delete.component';
 import { PageObject } from 'src/app/shared/service/pageObject';
 import { SearchParams } from 'src/app/shared/service/searchParams';
-import { ItemData } from '../../welcome/service/welcome';
 import { ContractFrmComponent } from './contract-frm/contract-frm.component';
 import { Contract, ContractData } from './service/contract';
 
@@ -40,7 +39,7 @@ export class ContractComponent implements OnInit {
   constructor(private modalService: NzModalService, private notifyService: NzNotificationService, private service: ContractData) { }
 
   ngOnInit() {
-    this.searchData();
+    // this.searchData();
   } 
 
   searchData() {
@@ -62,7 +61,7 @@ export class ContractComponent implements OnInit {
 
   onUpdate(): void {
     this.modalService.create({
-      nzTitle: 'Edit Item',
+      nzTitle: 'Chỉnh sửa hợp đồng',
       nzContent: ContractFrmComponent,
       nzCentered: true,
       nzMaskClosable: false,
@@ -73,9 +72,8 @@ export class ContractComponent implements OnInit {
     }).afterClose.subscribe({
       next: (res) => {
         console.log(res);
-        this.notifyService.success('Success', 'Success', this.modalOptions);
         if (res) {
-          this.notifyService.success('Success', 'Success', this.modalOptions);
+          this.notifyService.success('Thành công', 'Chỉnh sửa hợp đồng', this.modalOptions);
         }
 
       },
@@ -88,7 +86,7 @@ export class ContractComponent implements OnInit {
 
   onView(): void {
     this.modalService.create({
-      nzTitle: 'View Item',
+      nzTitle: 'Xem hợp đồng',
       nzContent: ContractFrmComponent,
       nzCentered: true,
       nzMaskClosable: false,
@@ -102,7 +100,7 @@ export class ContractComponent implements OnInit {
   onCreate(): void {
     this.modalService.create(
       {
-        nzTitle: 'Add Item',
+        nzTitle: 'Thêm hợp đồng',
         nzContent: ContractFrmComponent,
         nzCentered: true,
         nzMaskClosable: false,
@@ -117,7 +115,7 @@ export class ContractComponent implements OnInit {
           next: (res) => {
             console.log(res);
             if (res) {
-              this.notifyService.success('Success', 'Success', this.modalOptions);
+              this.notifyService.success('Thành công', 'Thêm mới hợp đồng', this.modalOptions);
             }
 
           },
@@ -131,7 +129,7 @@ export class ContractComponent implements OnInit {
   onDelete(): void {
     this.modalService.create(
       {
-        nzTitle: 'Delete Item',
+        nzTitle: 'Xóa hợp đồng',
         nzContent: DeleteComponent,
         nzCentered: true,
         nzMaskClosable: false,
@@ -141,7 +139,7 @@ export class ContractComponent implements OnInit {
       next: (res) => {
         console.log(res);
         if (res) {
-          this.notifyService.success('Success', 'Success', this.modalOptions);
+          this.notifyService.success('Thành công', 'Xóa hợp đồng', this.modalOptions);
         }
 
       },

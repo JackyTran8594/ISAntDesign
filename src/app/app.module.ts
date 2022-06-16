@@ -14,6 +14,7 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { CoreModule } from './@core/core.module';
+import { AuthModule } from './auth/auth.module';
 
 registerLocaleData(vi);
 
@@ -28,6 +29,7 @@ registerLocaleData(vi);
     HttpClientModule,
     BrowserAnimationsModule,
     CoreModule.forRoot(),
+    AuthModule.forRoot()
   ],
   providers: [{ provide: NZ_I18N, useValue: vi_VN }],
   bootstrap: [AppComponent]

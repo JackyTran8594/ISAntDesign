@@ -1,17 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   validateForm!: FormGroup;
+  control!: FormControl;
+  private destroy$: Subject<void> = new Subject<void>();
 
-  submitForm(): void {
+  login(): void {
     if (this.validateForm.valid) {
+      const user = this.validateForm.value;
       console.log('submit', this.validateForm.value);
+      this.service.authenticate(user).subscribe({
+        next: (res) => {
+          console.log(res);
+          if (res) {
+            localStorage.setItem('access_token', res.access_token);
+            this.router.navigate(['pages'])
+          }
+        },
+        error: (error) => {
+          console.log(error);
+        },
+        complete: () => {
+          console.log('done authenticate')
+        }
+      });
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -22,13 +43,38 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private service: AuthService, private router: Router) { }
+
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  get username() {
+    return this.validateForm.get("username");
+  }
+
+  get password() {
+    return this.validateForm.get("password");
+  }
 
   ngOnInit(): void {
+
+
+    const emailValidators = [
+      Validators.email,
+      Validators.required
+    ]
+
+    const passwordValidators = [
+      Validators.required
+
+    ]
+
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      remember: [true]
+      username: this.fb.control('', [...emailValidators]),
+      password: this.fb.control('', [...passwordValidators])
+      // remember: [true]
     });
   }
 }
