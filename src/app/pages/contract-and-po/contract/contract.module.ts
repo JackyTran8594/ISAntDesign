@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ContractRoutingModule } from './contract-routing.module';
@@ -19,6 +19,19 @@ import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { ContractFrmComponent } from './contract-frm/contract-frm.component';
+import { ContractApi } from './service/contract.api';
+import { ContractService } from './service/contract.service';
+import { ContractData } from './service/contract';
+
+const API = [
+  ContractApi
+]
+
+const SERVICE = [
+  {
+    provide: ContractData, useClass: ContractService
+  }
+]
 
 const MODULES = [
   NzCardModule,
@@ -49,4 +62,14 @@ const MODULES = [
     ...MODULES
   ]
 })
-export class ContractModule { }
+export class ContractModule {
+  static forRoot(): ModuleWithProviders<ContractModule> {
+    return {
+      ngModule: ContractModule,
+      providers: [
+        ...API,
+        ...SERVICE
+      ]
+    }
+  }
+}

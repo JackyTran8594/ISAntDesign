@@ -2,8 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { DeleteComponent } from 'src/app/shared/component/delete/delete.component';
+import { PageObject } from 'src/app/shared/service/pageObject';
+import { SearchParams } from 'src/app/shared/service/searchParams';
 import { ItemData } from '../../welcome/service/welcome';
 import { ContractFrmComponent } from './contract-frm/contract-frm.component';
+import { Contract, ContractData } from './service/contract';
 
 @Component({
   selector: 'app-contract',
@@ -14,75 +17,43 @@ export class ContractComponent implements OnInit {
 
   isCollapse: boolean = false;
 
+  listData: Contract[] = [];
+  search: SearchParams = {
+    txtSearch: ''
+  };
+  page: PageObject = {
+    pageNumber: 1,
+    pageSize: 10,
+    totalElement: 0
+  };
+
   modalOptions: any = {
     nzDuration: 2000
   }
 
-  listOfSelection = [
-    {
-      text: 'Select All Row',
-      onSelect: () => {
-        this.onAllChecked(true);
-      }
-    },
-    {
-      text: 'Select Odd Row',
-      onSelect: () => {
-        this.listOfCurrentPageData.forEach((data, index) => this.updateCheckedSet(data.id, index % 2 !== 0));
-        this.refreshCheckedStatus();
-      }
-    },
-    {
-      text: 'Select Even Row',
-      onSelect: () => {
-        this.listOfCurrentPageData.forEach((data, index) => this.updateCheckedSet(data.id, index % 2 === 0));
-        this.refreshCheckedStatus();
-      }
-    }
-  ];
+
   checked = false;
-  indeterminate = false;
-  listOfCurrentPageData: readonly ItemData[] = [];
-  listOfData: readonly ItemData[] = [];
-  setOfCheckedId = new Set<number>();
 
-  updateCheckedSet(id: number, checked: boolean): void {
-    if (checked) {
-      this.setOfCheckedId.add(id);
-    } else {
-      this.setOfCheckedId.delete(id);
-    }
-  }
 
-  onItemChecked(id: number, checked: boolean): void {
-    this.updateCheckedSet(id, checked);
-    this.refreshCheckedStatus();
+
+
+  constructor(private modalService: NzModalService, private notifyService: NzNotificationService, private service: ContractData) { }
+
+  ngOnInit() {
+    this.searchData();
+  } 
+
+  searchData() {
+    this.service.paging(this.page.pageNumber, this.page.pageSize, this.search.txtSearch).subscribe(res => {
+      console.log(res);
+      this.listData = res.content;
+    });
   }
 
   onAllChecked(value: boolean): void {
-    this.listOfCurrentPageData.forEach(item => this.updateCheckedSet(item.id, value));
-    this.refreshCheckedStatus();
   }
 
-  onCurrentPageDataChange($event: readonly ItemData[]): void {
-    this.listOfCurrentPageData = $event;
-    this.refreshCheckedStatus();
-  }
-
-  refreshCheckedStatus(): void {
-    this.checked = this.listOfCurrentPageData.every(item => this.setOfCheckedId.has(item.id));
-    this.indeterminate = this.listOfCurrentPageData.some(item => this.setOfCheckedId.has(item.id)) && !this.checked;
-  }
-
-  constructor(private modalService: NzModalService, private notifyService: NzNotificationService) { }
-
-  ngOnInit() {
-    this.listOfData = new Array(200).fill(0).map((_, index) => ({
-      id: index,
-      name: `Edward King ${index}`,
-      age: 32,
-      address: `London, Park Lane no. ${index}`
-    }));
+  changePageSize(event: any): void {
   }
 
   collapse() {
@@ -178,6 +149,6 @@ export class ContractComponent implements OnInit {
         console.log(res);
       }
     })
-  }
+  };
 
 }
