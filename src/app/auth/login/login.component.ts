@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { AuthData } from '../service/auth';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     }
   }
 
-  constructor(private fb: FormBuilder, private service: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, protected service: AuthService, private router: Router) { }
 
   ngOnDestroy(): void {
     this.destroy$.next();

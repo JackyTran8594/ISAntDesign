@@ -7,7 +7,7 @@ import { HttpService } from 'src/app/@core/backend/common/http.service';
 @Injectable()
 export class AuthApi {
 
-  private readonly apiController = 'authenticate/login';
+  private readonly apiController = 'auth/login';
 
   constructor(private http: HttpService) {
 

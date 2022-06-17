@@ -8,14 +8,18 @@ const SERVICE = [
   HttpService
 ]
 
+
 export const CORE_PROVIDERS = [
-  ContractModule.forRoot().providers
+  ContractModule.forRoot().providers,
 ]
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule
+  ],
+  exports: [
+    
   ]
 })
 export class CoreModule {

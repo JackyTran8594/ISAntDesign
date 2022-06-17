@@ -2,18 +2,17 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Observable } from 'rxjs';
-import { HttpService } from 'src/app/@core/backend/common/http.service';
 import { AuthData } from './auth';
 import { AuthApi } from './auth.api';
 
 @Injectable()
-export class AuthService implements AuthData {
+export class AuthService {
 
   constructor(private jwtHelper: JwtHelperService, private router: Router, private api: AuthApi) {
 
   }
 
- 
+
   public isAuthenticated(): boolean {
     let isAuthenticated: boolean = true;
     const token = localStorage.getItem('access_token');
@@ -30,8 +29,8 @@ export class AuthService implements AuthData {
   }
 
   public logout() {
-      localStorage.clear();
-      // this.router.navigate(['auth/login'])
+    localStorage.clear();
+    // this.router.navigate(['auth/login'])
   }
 
   get tokenValue() {
@@ -39,9 +38,9 @@ export class AuthService implements AuthData {
     return token;
   }
 
-  authenticate(data?: any): Observable<any> {
+  public authenticate(data?: any): Observable<any> {
     return this.api.authenticate(data);
   }
 
- 
+
 }

@@ -31,7 +31,10 @@ registerLocaleData(vi);
     CoreModule.forRoot(),
     AuthModule.forRoot()
   ],
-  providers: [{ provide: NZ_I18N, useValue: vi_VN }],
+  providers: [
+    { provide: NZ_I18N, useValue: vi_VN },
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
