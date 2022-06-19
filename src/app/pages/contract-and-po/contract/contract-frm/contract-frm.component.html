@@ -1,14 +1,74 @@
-<nz-modal [(nzVisible)]="isVisible" [nzTitle]="modalTitle" [nzContent]="modalContent" [nzFooter]="modalFooter"
-    (nzOnCancel)="handleCancel()">
-    <ng-template class="text-center" #modalTitle>Custom Modal Title</ng-template>
+<div class="modal-content">
+    <div nz-row [nzGutter]="8">
+        <div class="flex flex-row" nz-col [nzSpan]="8">
+            <div nz-col [nzSpan]="10">
+                <label>Mã hợp đồng:<span style="color:red">*</span></label>
 
-    <ng-template #modalContent>
+            </div>
+            <div nz-col [nzSpan]="14">
+                <input nz-input placeholder="Mã hợp đồng" [(ngModel)]="item.contractCode" />
+            </div>
+        </div>
+     
+
+    </div>
+    <div nz-row [nzGutter]="8">
+        <div class="flex flex-row" nz-col [nzSpan]="24">
+            <div nz-col [nzSpan]="3">
+                <label>Tên hợp đồng:<span style="color:red">*</span></label>
+            </div>
+            <div nz-col [nzSpan]="21">
+                <input nz-input placeholder="Tên hợp đồng" [(ngModel)]="item.name" />
+            </div>
+        </div>
+    </div>
+    <div nz-row [nzGutter]="8">
+        <div class="flex flex-row" nz-col [nzSpan]="8">
+            <div nz-col [nzSpan]="10">
+                <label>Giá trị:<span style="color:red">*</span></label>
+            </div>
+            <div nz-col [nzSpan]="14">
+                <input nz-input placeholder="Giá trị" [(ngModel)]="item.paymentContent" />
+            </div>
+        </div>
       
-    </ng-template>
+    </div>
+    
+    <div nz-row [nzGutter]="8">
+        <div class="flex flex-row" nz-col [nzSpan]="24">
+            <div nz-col [nzSpan]="4">
+                <label>Mô tả:</label>
+            </div>
+            <div nz-col [nzSpan]="20">
+                <textarea rows="3" nz-input placeholder="Mô tả" [(ngModel)]="item.description"></textarea>
+            </div>
+        </div>
 
-    <ng-template #modalFooter>
-        <span>Modal Footer:</span>
-        <button nz-button nzType="default" (click)="handleCancel()">Custom Callback</button>
-        <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Custom Submit</button>
-    </ng-template>
-</nz-modal>
+    </div>
+    
+    <div>
+        <input nz-input placeholder="Nội dung thanh toán" [(ngModel)]="item.bankGuarantee" />
+    </div>
+    <div>
+        <input nz-input placeholder="Bảo lãnh ngân hàng" [(ngModel)]="item.customerId" />
+    </div>
+    <div>
+        <input nz-input placeholder="Khách hàng" [(ngModel)]="item.contractDate" />
+    </div>
+    <div>
+        <input nz-input placeholder="Ngày hợp đồng" [(ngModel)]="item.timeLine" />
+    </div>
+    <div>
+        <input nz-input placeholder="Thời hạn hợp đồng" [(ngModel)]="item.guarantee" />
+    </div>
+    <div>
+        <textarea nz-input row="4" placeholder="Ghi chú" [(ngModel)]="item.note"></textarea>
+    </div>
+</div>
+
+
+
+<div class="modal-footer" *nzModalFooter>
+    <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Lưu</button>
+    <button nz-button nzType="default" (click)="handleCancel()">Hủy</button>
+</div>

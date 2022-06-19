@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Contract } from '../service/contract';
 
 @Component({
   selector: 'app-contract-frm',
@@ -10,6 +11,9 @@ export class ContractFrmComponent implements OnInit {
   @Input() isUpdate: boolean = false;
   @Input() isView: boolean = false;
   @Input() isCreate: boolean = false;
+
+  @Input() item: Contract = {};
+  @Input() title: string = '';
 
   constructor() { }
 

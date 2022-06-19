@@ -1,0 +1,25 @@
+
+::ng-deep nz-modal {
+    @apply md:w-[840px];
+}
+
+::ng-deep .modal-custom {
+    @apply sm:max-h-full sm:max-w-full;
+    @apply md:w-[50%];
+}
+
+::ng-deep .modal-custom .ant-modal-title {
+    @apply flex justify-center font-bold uppercase 
+}
+
+.modal-content {
+    @apply grid grid-rows-4 grid gap-4;
+}
+
+.modal-content .content-row {
+    @apply mb-2;
+  }
+
+.modal-footer {
+    @apply flex justify-center;
+}

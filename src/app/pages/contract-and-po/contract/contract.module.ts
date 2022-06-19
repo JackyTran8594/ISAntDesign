@@ -22,6 +22,8 @@ import { ContractFrmComponent } from './contract-frm/contract-frm.component';
 import { ContractApi } from './service/contract.api';
 import { ContractService } from './service/contract.service';
 import { ContractData } from './service/contract';
+import { FormsModule } from '@angular/forms';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 const API = [
   ContractApi
@@ -48,6 +50,7 @@ const MODULES = [
   NzPaginationModule,
   NzPopconfirmModule,
   NzNotificationModule,
+  NzFormModule,
 ]
 
 @NgModule({
@@ -59,6 +62,7 @@ const MODULES = [
     CommonModule,
     ContractRoutingModule,
     SharedModule,
+    FormsModule,
     ...MODULES
   ]
 })

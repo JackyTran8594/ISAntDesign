@@ -1,5 +1,7 @@
 module.exports = {
     prefix: '',
+    mode: 'jit',
+    important: true,
     purge: {
         enabled: true,
         content: [

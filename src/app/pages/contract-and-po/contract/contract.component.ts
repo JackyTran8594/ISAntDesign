@@ -40,7 +40,7 @@ export class ContractComponent implements OnInit {
 
   ngOnInit() {
     // this.searchData();
-  } 
+  }
 
   searchData() {
     this.service.paging(this.page.pageNumber, this.page.pageSize, this.search.txtSearch).subscribe(res => {
@@ -88,6 +88,7 @@ export class ContractComponent implements OnInit {
     this.modalService.create({
       nzTitle: 'Xem hợp đồng',
       nzContent: ContractFrmComponent,
+      
       nzCentered: true,
       nzMaskClosable: false,
       nzComponentParams: {
@@ -101,11 +102,14 @@ export class ContractComponent implements OnInit {
     this.modalService.create(
       {
         nzTitle: 'Thêm hợp đồng',
+        nzClassName: 'modal-custom',
         nzContent: ContractFrmComponent,
+        nzWidth:'modal-custom',
         nzCentered: true,
         nzMaskClosable: false,
         nzComponentParams: {
           isCreate: true,
+          title: 'Thêm hợp đồng'
         },
         nzDirection: 'ltr' // left to right
       }
