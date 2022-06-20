@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Contract } from '../service/contract';
 
 @Component({
@@ -8,6 +9,8 @@ import { Contract } from '../service/contract';
 })
 export class ContractFrmComponent implements OnInit {
 
+  formValidation!: FormGroup;
+
   @Input() isUpdate: boolean = false;
   @Input() isView: boolean = false;
   @Input() isCreate: boolean = false;
@@ -15,9 +18,13 @@ export class ContractFrmComponent implements OnInit {
   @Input() item: Contract = {};
   @Input() title: string = '';
 
-  constructor() { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
+    this.formValidation = this.fb.group({
+      contractCode: ['', [Validators.required]],
+      name: ['', [Validators.required]],
+    });
   }
 
   isVisible = false;
