@@ -1,0 +1,40 @@
+<div class="modal-content">
+
+
+    <div nz-row class="flex flex-row" [nzGutter]="8">
+        <div nz-col [nzSpan]="4">
+            <label>Mã nhóm quyền:<span style="color:red">*</span></label>
+        </div>
+        <div nz-col [nzSpan]="20">
+            <input nz-input type="text" placeholder="Mã nhóm quyền" [(ngModel)]="item.code" />
+        </div>
+    </div>
+
+    <div nz-row class="flex flex-row" [nzGutter]="8">
+        <div nz-col [nzSpan]="4">
+            <label>Tên nhóm quyền:<span style="color:red">*</span></label>
+        </div>
+        <div nz-col [nzSpan]="20">
+            <input nz-input placeholder="Tên nhóm quyền" [(ngModel)]="item.name" />
+            <input type="text">
+        </div>
+
+    </div>
+
+    <div nz-row class="flex flex-row" [nzGutter]="8">
+        <div nz-col [nzSpan]="4">
+            <label>Mô tả:<span style="color:red">*</span></label>
+        </div>
+        <div nz-col [nzSpan]="20">
+            <input nz-input placeholder="Mô tả" [(ngModel)]="item.description" />
+        </div>
+
+    </div>
+
+
+</div>
+
+<div class="modal-footer" *nzModalFooter>
+    <button nz-button nzType="primary" (click)="handleOk()" [nzLoading]="isConfirmLoading">Lưu</button>
+    <button nz-button nzType="default" (click)="handleCancel()">Hủy</button>
+</div>

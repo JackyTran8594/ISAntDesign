@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ContractModule } from '../pages/contract-and-po/contract/contract.module';
 import { throwIfAlreadyLoaded } from './module-import-guard';
 import { HttpService } from './backend/common/http.service';
+import { RoleModule } from '../pages/system-management/role/role.module';
+import { UserModule } from '../pages/system-management/user/user.module';
 
 const SERVICE = [
   HttpService
@@ -11,6 +13,8 @@ const SERVICE = [
 
 export const CORE_PROVIDERS = [
   ContractModule.forRoot().providers,
+  RoleModule.forRoot().providers,
+  UserModule.forRoot().providers
 ]
 
 @NgModule({
@@ -19,7 +23,7 @@ export const CORE_PROVIDERS = [
     CommonModule
   ],
   exports: [
-    
+
   ]
 })
 export class CoreModule {

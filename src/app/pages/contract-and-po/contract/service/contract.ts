@@ -1,7 +1,8 @@
 import { Observable } from "rxjs";
+import { BaseObject } from "src/app/@core/interface/baseObject";
 import { TableData } from "src/app/@core/interface/TableData";
 
-export interface Contract {
+export interface Contract extends BaseObject {
     id?: number;
     contractCode?: string;
     name?: string;

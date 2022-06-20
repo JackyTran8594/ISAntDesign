@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
-import { AuthData } from '../service/auth';
+import { AccessToken, AuthData } from '../service/auth';
 import { AuthService } from '../service/auth.service';
 
 @Component({
@@ -20,10 +20,10 @@ export class LoginComponent implements OnInit, OnDestroy {
       const user = this.validateForm.value;
       console.log('submit', this.validateForm.value);
       this.service.authenticate(user).subscribe({
-        next: (res) => {
+        next: (res: AccessToken) => {
           console.log(res);
           if (res) {
-            localStorage.setItem('access_token', res.access_token);
+            localStorage.setItem('access_token', res.accessToken);
             this.router.navigate(['pages'])
           }
         },
