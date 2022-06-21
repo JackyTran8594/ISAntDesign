@@ -1,1 +1,116 @@
-<p>customer-frm works!</p>
+<div class="modal-content">
+    <form nz-form [formGroup]="formValidation">
+        <!-- row 1 -->
+        <div nz-row class="flex flex-row" [nzGutter]="8">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nz-row [nzGutter]="2">
+                    <nz-form-label nz-col [nzSpan]="6">
+                        Mã khách hàng <span style="color:red ;">*</span>
+                    </nz-form-label>
+                    <nz-form-control nz-col [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                        <input nz-input placeholder="Mã khách hàng" formControlName="code" name="code" required />
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nz-row [nzGutter]="2">
+                    <nz-form-label [nzSpan]="6">
+                        Mã số thuế <span style="color:red;">*</span>
+                    </nz-form-label>
+                    <nz-form-control [nzSpan]="18" [nzErrorTip]="taxCodeError">
+                        <input nz-input placeholder="Mã số thuế" formControlName="taxCode" name="taxCode" required />
+                    </nz-form-control>
+                    <ng-template #taxCodeError>
+                        <ng-container *ngIf="formValidation.controls['taxCode'].hasError('required')">Bắt buộc !</ng-container>
+                        <ng-container *ngIf="formValidation.controls['taxCode'].hasError('pattern')">Sai định dạng !</ng-container>
+                    </ng-template>
+                </nz-form-item>
+            </div>
+        </div>
+
+        <!-- row 2 -->
+        <div nz-row class="flex flex-row" [nzGutter]="8">
+            <div nz-col [nzSpan]="24">
+                <nz-form-item nz-row [nzGutter]="2">
+                    <nz-form-label nz-col [nzSpan]="3">
+                        Tên <span style="color:red ;">*</span>
+                    </nz-form-label>
+                    <nz-form-control nz-col [nzSpan]="21" nzErrorTip="Bắt buộc!">
+                        <input nz-input placeholder="Tên khách hàng" formControlName="name" name="name" required />
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+
+        <!-- row 3 -->
+        <div nz-row class="flex flex-row" [nzGutter]="8">
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nz-row [nzGutter]="2">
+                    <nz-form-label nz-col [nzSpan]="6">
+                        Số điện thoại <span style="color:red ;">*</span>
+                    </nz-form-label>
+                    <nz-form-control nz-col [nzSpan]="18" [nzErrorTip]="phoneError">
+                        <input nz-input placeholder="Số điện thoại" formControlName="phone" name="phone" required />
+                    </nz-form-control>
+                    <ng-template #phoneError let-contol>
+                        <ng-container *ngIf="formValidation.controls['phone'].hasError('required')">Bắt buộc !</ng-container>
+                        <ng-container *ngIf="formValidation.controls['phone'].hasError('pattern')">Sai định dạng !</ng-container>
+                    </ng-template>
+                </nz-form-item>
+            </div>
+
+            <div nz-col [nzSpan]="12">
+                <nz-form-item nz-row [nzGutter]="2">
+                    <nz-form-label [nzSpan]="6">
+                        Fax
+                    </nz-form-label>
+                    <nz-form-control [nzSpan]="18" [nzErrorTip]="faxError">
+                        <input nz-input placeholder="Fax" formControlName="fax" name="fax" />
+                    </nz-form-control>
+                    <ng-template #faxError>
+                        <ng-container *ngIf="formValidation.controls['fax'].hasError('pattern')">Sai định dạng !</ng-container>
+                    </ng-template>
+                </nz-form-item>
+            </div>
+        </div>
+
+        <!-- row 4 -->
+        <div nz-row class="flex flex-row" [nzGutter]="8">
+            <div nz-col [nzSpan]="24">
+                <nz-form-item nz-row [nzGutter]="2">
+                    <nz-form-label [nzSpan]="3">
+                        Địa chỉ
+                    </nz-form-label>
+                    <nz-form-control [nzSpan]="21">
+                        <textarea nz-input rows="3" placeholder="Tên khách hàng" formControlName="address"
+                            name="address"></textarea>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+
+        <!-- row 5 -->
+        <div nz-row class="flex flex-row" [nzGutter]="8">
+            <div nz-col [nzSpan]="24">
+                <nz-form-item nz-row [nzGutter]="2">
+                    <nz-form-label [nzSpan]="3">
+                        Mô tả
+                    </nz-form-label>
+                    <nz-form-control [nzSpan]="21">
+                        <textarea nz-input rows="3" placeholder="Mô tả" formControlName="description"
+                            name="description"></textarea>
+                    </nz-form-control>
+                </nz-form-item>
+            </div>
+        </div>
+
+
+    </form>
+
+    <div class="modal-footer" *nzModalFooter>
+        <button nz-button nzType="primary" [disabled]="!formValidation.valid" (click)="handleOk()"
+            [nzLoading]="isConfirmLoading">Lưu</button>
+        <button nz-button nzType="default" (click)="handleCancel()">Hủy</button>
+    </div>
+</div>

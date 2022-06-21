@@ -5,6 +5,7 @@ import { throwIfAlreadyLoaded } from './module-import-guard';
 import { HttpService } from './backend/common/http.service';
 import { RoleModule } from '../pages/system-management/role/role.module';
 import { UserModule } from '../pages/system-management/user/user.module';
+import { CustomerModule } from '../pages/customer-management/customer.module';
 
 const SERVICE = [
   HttpService
@@ -14,7 +15,8 @@ const SERVICE = [
 export const CORE_PROVIDERS = [
   ContractModule.forRoot().providers,
   RoleModule.forRoot().providers,
-  UserModule.forRoot().providers
+  UserModule.forRoot().providers,
+  CustomerModule.forRoot().providers
 ]
 
 @NgModule({

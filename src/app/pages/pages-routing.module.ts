@@ -12,7 +12,7 @@ const routes: Routes = [
       { path: 'contract', loadChildren: () => import('../pages/contract-and-po/contract/contract.module').then(m => m.ContractModule) },
       { path: 'role', loadChildren: () => import('../pages/system-management/role/role.module').then(m => m.RoleModule) },
       { path: 'user', loadChildren: () => import('../pages/system-management/user/user.module').then(m => m.UserModule) },
-     
+      { path: 'customer', loadChildren: () => import('../pages/customer-management/customer.module').then(m => m.CustomerModule) },
     ]
   },
 

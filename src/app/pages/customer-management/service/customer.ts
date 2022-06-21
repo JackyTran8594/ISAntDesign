@@ -1,14 +1,17 @@
 import { Observable } from "rxjs";
+import { BaseObject } from "src/app/@core/interface/baseObject";
 import { TableData } from "src/app/@core/interface/TableData";
 
-export interface Customer {
+export interface Customer extends BaseObject {
     id?: number;
     code?: string;
     name?: string;
     address?: string;
     taxCode?: string;
     fax?: string;
+    phone?: string;
     description?: string;
+    isChecked?: Boolean;
 }
 
 
