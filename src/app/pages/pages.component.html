@@ -16,12 +16,12 @@
             <li nz-menu-item nzMatchRouter>
               <a routerLink="welcome">Welcome</a>
             </li>
-            <li nz-menu-item nzMatchRouter>
+            <!-- <li nz-menu-item nzMatchRouter>
               <a>Monitor</a>
             </li>
             <li nz-menu-item nzMatchRouter>
               <a>Workplace</a>
-            </li>
+            </li> -->
           </ul>
         </li>
         <li nz-submenu nzOpen nzTitle="Hợp đồng và đơn hàng" nzIcon="appstore">
@@ -43,11 +43,20 @@
             </li>
           </ul>
         </li>
-        <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">
+        <li nz-submenu nzOpen nzTitle="Quản trị hệ thống" nzIcon="appstore">
           <ul>
             <li nz-menu-item nzMatchRouter>
-              <a>Basic Form</a>
+              <a routerLink="role">Quản lý nhóm quyền</a>
             </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="user">Quản lý người dùng</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="config">Quản lý cấu hình</a>
+            </li>
+            <!-- <li nz-menu-item nzMatchRouter>
+              <a routerLink="config">Danh mục tỉnh thành</a>
+            </li> -->
           </ul>
         </li>
       </ul>

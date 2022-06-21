@@ -129,25 +129,26 @@
     <form nz-form [formGroup]="formValidation">
         <!-- row 1 -->
         <div nz-row class="flex flex-row" [nzGutter]="8">
-            <div nz-col [nzSpan]="8">
+            <div nz-col [nzSpan]="12">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label nz-col [nzSpan]="8">
+                    <nz-form-label nz-col [nzSpan]="6">
                         Mã hợp đồng <span style="color:red ;">*</span>
                     </nz-form-label>
-                    <nz-form-control nz-col [nzSpan]="16" nzErrorTip="Bắt buộc!">
+                    <nz-form-control nz-col [nzSpan]="18" nzErrorTip="Bắt buộc!">
                         <input nz-input placeholder="Mã hợp đồng" formControlName="contractCode" name="contractCode"
                             required />
                     </nz-form-control>
                 </nz-form-item>
             </div>
 
-            <div nz-col [nzSpan]="16">
+            <div nz-col [nzSpan]="12">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label nz-col [nzSpan]="4">
+                    <nz-form-label nz-col [nzSpan]="6">
                         Tên hợp đồng <span style="color:red ;">*</span>
                     </nz-form-label>
-                    <nz-form-control nz-col [nzSpan]="20" nzErrorTip="Bắt buộc!">
-                        <input nz-input placeholder="Têm hợp đồng" formControlName="name" name="name" required />
+                    <nz-form-control nz-col [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                        <textarea rows="3" nz-input placeholder="Têm hợp đồng" formControlName="name" name="name"
+                            required></textarea>
                     </nz-form-control>
                 </nz-form-item>
             </div>
@@ -156,22 +157,23 @@
 
         <!-- row 2 -->
         <div nz-row class="flex flex-row" [nzGutter]="8">
-            <div nz-col [nzSpan]="8">
+            <div nz-col [nzSpan]="12">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label [nzSpan]="8">
+                    <nz-form-label [nzSpan]="6">
                         Giá trị <span style="color:red;">*</span>
                     </nz-form-label>
-                    <nz-form-control [nzSpan]="16" nzErrorTip="Bắt buộc!">
-                        <nz-input-number formControlName="value" name="value"></nz-input-number>
+                    <nz-form-control [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                        <nz-input-number [nzMin]="0" formControlName="value" name="value" style="width: 100%;">
+                        </nz-input-number>
                     </nz-form-control>
                 </nz-form-item>
             </div>
-            <div nz-col [nzSpan]="16">
+            <div nz-col [nzSpan]="12">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label [nzSpan]="4">
+                    <nz-form-label [nzSpan]="6">
                         Mô tả
                     </nz-form-label>
-                    <nz-form-control [nzSpan]="20">
+                    <nz-form-control [nzSpan]="18">
                         <textarea nz-input rows="3" formControlName="description" name="description"></textarea>
                     </nz-form-control>
                 </nz-form-item>
@@ -181,23 +183,25 @@
 
         <!-- row 3 -->
         <div nz-row class="flex flex-row" [nzGutter]="8">
-            <div nz-col [nzSpan]="8">
+            <div nz-col [nzSpan]="12">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label [nzSpan]="8">
+                    <nz-form-label [nzSpan]="6">
                         Ngày hợp đồng <span style="color:red;">*</span>
                     </nz-form-label>
-                    <nz-form-control [nzSpan]="16" nzErrorTip="Bắt buộc!">
-                        <nz-date-picker [nzSize]="'default'" formControlName="contractDate"></nz-date-picker>
+                    <nz-form-control [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                        <nz-date-picker [nzSize]="'default'" formControlName="contractDate" style="width:100%;">
+                        </nz-date-picker>
                     </nz-form-control>
                 </nz-form-item>
             </div>
-            <div nz-col [nzSpan]="16">
+            <div nz-col [nzSpan]="12">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label [nzSpan]="8">
+                    <nz-form-label [nzSpan]="6">
                         Hiệu lực HĐ <span style="color:red;">*</span>
                     </nz-form-label>
-                    <nz-form-control [nzSpan]="16">
-                        <nz-date-picker [nzSize]="'default'" formControlName="timeLine"></nz-date-picker>
+                    <nz-form-control [nzSpan]="18">
+                        <nz-date-picker [nzSize]="'default'" formControlName="timeLine" style="width:100%;">
+                        </nz-date-picker>
                     </nz-form-control>
                 </nz-form-item>
             </div>
@@ -207,10 +211,10 @@
         <div nz-row class="flex flex-row" [nzGutter]="8">
             <div nz-col [nzSpan]="24">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label nz-col [nzSpan]="8">
+                    <nz-form-label nz-col [nzSpan]="3">
                         Bảo lãnh <span style="color:red ;">*</span>
                     </nz-form-label>
-                    <nz-form-control nz-col [nzSpan]="16" nzErrorTip="Bắt buộc!">
+                    <nz-form-control nz-col [nzSpan]="21" nzErrorTip="Bắt buộc!">
                         <input nz-input placeholder="Bảo lãnh" formControlName="bankGuarantee" name="bankGuarantee"
                             required />
                     </nz-form-control>
@@ -223,10 +227,10 @@
         <div nz-row class="flex flex-row" [nzGutter]="8">
             <div nz-col [nzSpan]="24">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label nz-col [nzSpan]="8">
+                    <nz-form-label nz-col [nzSpan]="3">
                         Nội dung bảo lãnh <span style="color:red ;">*</span>
                     </nz-form-label>
-                    <nz-form-control nz-col [nzSpan]="16" nzErrorTip="Bắt buộc!">
+                    <nz-form-control nz-col [nzSpan]="21" nzErrorTip="Bắt buộc!">
                         <textarea rows="3" nz-input placeholder="Nội dung bảo lãnh" formControlName="guarantee"
                             name="guarantee" required></textarea>
                     </nz-form-control>
@@ -239,10 +243,10 @@
         <div nz-row class="flex flex-row" [nzGutter]="8">
             <div nz-col [nzSpan]="24">
                 <nz-form-item nz-row [nzGutter]="2">
-                    <nz-form-label nz-col [nzSpan]="8">
+                    <nz-form-label nz-col [nzSpan]="3">
                         Ghi chú
                     </nz-form-label>
-                    <nz-form-control nz-col [nzSpan]="16">
+                    <nz-form-control nz-col [nzSpan]="21">
                         <textarea rows="3" nz-input placeholder="Ghi chú" formControlName="note" name="note"
                             required></textarea>
                     </nz-form-control>

@@ -15,7 +15,7 @@ export class ContractFrmComponent implements OnInit {
   @Input() isView: boolean = false;
   @Input() isCreate: boolean = false;
 
-  @Input() item: Contract = {};
+  // @Input() item: Contract = {};
   @Input() title: string = '';
 
   constructor(private fb: FormBuilder) { }
@@ -24,6 +24,15 @@ export class ContractFrmComponent implements OnInit {
     this.formValidation = this.fb.group({
       contractCode: ['', [Validators.required]],
       name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      value: ['', [Validators.required]],
+      paymentContent: ['', []],
+      bankGuarantee: ['', []],
+      customerId: ['', [Validators.required]],
+      contractDate: ['', [Validators.required]],
+      timeLine: ['', [Validators.required]],
+      guarantee: ['', []],
+      note: ['', []],
     });
   }
 
