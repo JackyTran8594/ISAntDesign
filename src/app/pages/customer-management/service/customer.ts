@@ -2,8 +2,8 @@ import { Observable } from "rxjs";
 import { BaseObject } from "src/app/@core/interface/baseObject";
 import { TableData } from "src/app/@core/interface/TableData";
 
-export interface Customer extends BaseObject {
-    id?: number;
+export interface Customer {
+    id: number;
     code?: string;
     name?: string;
     address?: string;
@@ -11,6 +11,11 @@ export interface Customer extends BaseObject {
     fax?: string;
     phone?: string;
     description?: string;
+    createdBy?:string;
+    createdDate?:Date;
+    lastModifiedBy?:string;
+    lastModifiedDate?:Date;
+    status?:string;
     isChecked?: Boolean;
 }
 

@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
+import { MessageError, ResponseError } from 'src/app/shared/service/messageError';
 import { AccessToken, AuthData } from '../service/auth';
 import { AuthService } from '../service/auth.service';
 
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   validateForm!: FormGroup;
   control!: FormControl;
   private destroy$: Subject<void> = new Subject<void>();
+  messageError!: MessageError;
+
 
   login(): void {
     if (this.validateForm.valid) {
@@ -29,6 +32,8 @@ export class LoginComponent implements OnInit, OnDestroy {
         },
         error: (error) => {
           console.log(error);
+          this.messageError.isError = true;
+          this.messageError.message = ResponseError.E1.toString();
         },
         complete: () => {
           console.log('done authenticate')
@@ -61,6 +66,7 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.messageError = new MessageError();
 
     const emailValidators = [
       Validators.email,

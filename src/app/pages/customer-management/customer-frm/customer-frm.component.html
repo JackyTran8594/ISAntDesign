@@ -23,7 +23,7 @@
                     </nz-form-control>
                     <ng-template #taxCodeError>
                         <ng-container *ngIf="formValidation.controls['taxCode'].hasError('required')">Bắt buộc !</ng-container>
-                        <ng-container *ngIf="formValidation.controls['taxCode'].hasError('pattern')">Sai định dạng !</ng-container>
+                        <ng-container *ngIf="formValidation.controls['taxCode'].hasError('pattern')">Sai định dạng (13 chữ số) !</ng-container>
                     </ng-template>
                 </nz-form-item>
             </div>

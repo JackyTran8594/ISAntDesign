@@ -1,6 +1,6 @@
 export interface TableData<T> {
     content: T[];
-    totalElement: number;
+    totalElements: number;
     totalPages: number;
-    pageSize: number;
+    size: number;
 }

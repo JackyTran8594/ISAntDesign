@@ -24,9 +24,14 @@
   }
   
   .content-table-custom {
-    @apply min-w-full sm:h-56 md:h-60 border text-center;
-    @apply overflow-y-auto;
+    @apply min-w-full sm:h-48 md:h-56 border text-center;
+    @apply overflow-y-scroll;
   }
+
+  // .content-table-custom table {
+  //   @apply min-w-full sm:w-full md:w-full;
+  //   @apply overflow-y-scroll;
+  // }
   
   .date-picker-custom nz-date-picker {
     @apply mr-2;

@@ -127,9 +127,9 @@
         <div nz-col [nzSpan]="12" [nzOffset]="12">
             <div class="float-right">
                 <nz-pagination (nzPageSizeChange)="changePageSize($event)" [nzPageIndex]="page.pageNumber"
-                    [nzTotal]="page.totalElement" nzShowSizeChanger [nzPageSize]="page.pageSize" [nzShowTotal]="total">
+                    [nzTotal]="page.totalElements" nzShowSizeChanger [nzPageSize]="page.pageSize" [nzShowTotal]="total">
                 </nz-pagination>
-                <ng-template #total>Tổng số bản ghi: {{page.totalElement}}</ng-template>
+                <ng-template #total>Tổng số bản ghi: {{page.totalElements}}</ng-template>
             </div>
         </div>
     </div>
