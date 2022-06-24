@@ -1,0 +1,8 @@
+::ng-deep .modal-custom .ant-modal-title {
+    @apply flex justify-center font-bold uppercase 
+}
+
+
+.modal-footer {
+    @apply flex justify-center;
+}

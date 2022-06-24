@@ -5,12 +5,14 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NgModule } from '@angular/core';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzFormModule } from 'ng-zorro-antd/form';
 
 const MODULES = [
   NzCardModule,
   NzButtonModule,
   NzIconModule,
-  NzModalModule
+  NzModalModule,
+  NzFormModule
 ]
 
 @NgModule({

@@ -23,7 +23,7 @@
                     </nz-form-control>
                     <ng-template #taxCodeError>
                         <ng-container *ngIf="formValidation.controls['taxCode'].hasError('required')">Bắt buộc !</ng-container>
-                        <ng-container *ngIf="formValidation.controls['taxCode'].hasError('pattern')">Sai định dạng !</ng-container>
+                        <ng-container *ngIf="formValidation.controls['taxCode'].hasError('pattern')">Sai định dạng (13 chữ số) !</ng-container>
                     </ng-template>
                 </nz-form-item>
             </div>
@@ -109,7 +109,7 @@
     </form>
 
     <div class="modal-footer" *nzModalFooter>
-        <button nz-button nzType="primary" [disabled]="!formValidation.valid" (click)="handleOk()"
+        <button [hidden]="mode == 'view'" nz-button nzType="primary" [disabled]="!formValidation.valid" (click)="handleOk()"
             [nzLoading]="isConfirmLoading">Lưu</button>
         <button nz-button nzType="default" (click)="handleCancel()">Hủy</button>
     </div>

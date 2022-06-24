@@ -23,7 +23,7 @@ export class ContractComponent implements OnInit {
   page: PageObject = {
     pageNumber: 1,
     pageSize: 10,
-    totalElement: 0
+    totalElements: 0
   };
 
   modalOptions: any = {
@@ -43,10 +43,23 @@ export class ContractComponent implements OnInit {
   }
 
   searchData() {
-    this.service.paging(this.page.pageNumber, this.page.pageSize, this.search.txtSearch).subscribe(res => {
-      console.log(res);
-      this.listData = res.content;
-    });
+    this.service.paging(this.page.pageNumber, this.page.pageSize, this.search.txtSearch).subscribe(
+      {
+        next: (res) => {
+          console.log(res);
+          this.listData = res.content;
+          this.page.totalElements = res.totalElements;
+          this.page.totalPages = res.totalPages;
+          // console.log(this.page);
+        },
+        error: (err) => {
+          console.log(err)
+        },
+        complete: () => {
+          console.log('search done');
+        }
+      }
+      );
   }
 
   onAllChecked(value: boolean): void {

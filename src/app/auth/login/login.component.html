@@ -1,43 +1,47 @@
-
-   <div class="container">
-     <div class="form-container">
-      <span class="form-title">Đăng nhập</span>
-      <form nz-form [formGroup]="validateForm" class="login-form">
-        <nz-form-item>
-          <nz-form-control [nzErrorTip]="emailErrorTip">
-            <nz-input-group nzPrefixIcon="user">
-              <input type="email" nz-input formControlName="username" placeholder=" Email" required/>
-            </nz-input-group>
-            <ng-template #emailErrorTip let-contol>
-              <ng-container *ngIf="validateForm.controls['username'].hasError('email')">Không đúng định dạng email</ng-container>
-              <ng-container *ngIf="validateForm.controls['username'].hasError('required')">Bắt buộc !</ng-container>
-            </ng-template>
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item>
-          <nz-form-control [nzErrorTip]="passwordErrorTip">
-            <nz-input-group nzPrefixIcon="lock">
-              <input type="password" nz-input formControlName="password" placeholder=" Mật khẩu" required />
-            </nz-input-group>
-            <ng-template #passwordErrorTip let-contol>
-              <ng-container *ngIf="validateForm.controls['password'].hasError('required')">Bắt buộc !</ng-container>
-            </ng-template>
-          </nz-form-control>
-        </nz-form-item>
-        <div nz-row class="login-form-margin">
-          <!-- <div nz-col [nzSpan]="12">
+<div class="container">
+  <div class="form-container">
+    <div class="form-title">
+      <div class="title">Đăng nhập</div>
+      <div class="message-error" *ngIf="messageError.isError">{{messageError.message}}</div>
+    </div>
+    <form nz-form [formGroup]="validateForm" class="login-form">
+      <nz-form-item>
+        <nz-form-control [nzErrorTip]="emailErrorTip">
+          <nz-input-group nzPrefixIcon="user">
+            <input type="email" nz-input formControlName="username" placeholder=" Email" required />
+          </nz-input-group>
+          <ng-template #emailErrorTip let-contol>
+            <ng-container *ngIf="validateForm.controls['username'].hasError('email')">Không đúng định dạng email
+            </ng-container>
+            <ng-container *ngIf="validateForm.controls['username'].hasError('required')">Bắt buộc !</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control [nzErrorTip]="passwordErrorTip">
+          <nz-input-group nzPrefixIcon="lock">
+            <input type="password" nz-input formControlName="password" placeholder=" Mật khẩu" required />
+          </nz-input-group>
+          <ng-template #passwordErrorTip let-contol>
+            <ng-container *ngIf="validateForm.controls['password'].hasError('required')">Bắt buộc !</ng-container>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <div nz-row class="login-form-margin">
+        <!-- <div nz-col [nzSpan]="12">
             <label nz-checkbox formControlName="remember" class="flex flex-row items-center">
               <input type="checkbox" style="width: 13px; height: 13px; margin-right: 4px; border-radius: 0;"> <span>Remember me</span>
             </label>
           </div> -->
-          <!-- <div nz-col [nzSpan]="12" class="flex justify-end">
+        <!-- <div nz-col [nzSpan]="12" class="flex justify-end">
             <a class="login-form-forgot">Forgot password</a>
           </div> -->
-        </div>
-        <div class="button-container">
-          <button nz-button class="login-form-button login-form-margin" (click)="login()" [nzType]="'primary'">Đăng nhập</button>
-          <!-- <span class="flex justify-center">Or <a class="ml-1">register now!</a></span> -->
-        </div>
-      </form>
-     </div>
-   </div>
+      </div>
+      <div class="button-container">
+        <button nz-button class="login-form-button login-form-margin" (click)="login()" [nzType]="'primary'">Đăng
+          nhập</button>
+        <!-- <span class="flex justify-center">Or <a class="ml-1">register now!</a></span> -->
+      </div>
+    </form>
+  </div>
+</div>

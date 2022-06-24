@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NzModalRef } from 'ng-zorro-antd/modal';
 
 @Component({
   selector: 'app-delete',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteComponent implements OnInit {
 
-  constructor() { }
+  @Input() title!: string;
+  @Input() data!: string;
+
+
+
+  constructor(private modalRef: NzModalRef<DeleteComponent>) { }
 
   ngOnInit(): void {
+    this.data = "Bạn có chắc muốn xóa ????"
   }
 
   isVisible = false;
@@ -18,14 +25,12 @@ export class DeleteComponent implements OnInit {
 
   handleOk(): void {
     this.isConfirmLoading = true;
-    setTimeout(() => {
-      this.isVisible = false;
-      this.isConfirmLoading = false;
-    }, 1000);
+    this.modalRef.close(true);
   }
 
   handleCancel(): void {
     this.isVisible = false;
+    this.modalRef.close();
   }
 
 
