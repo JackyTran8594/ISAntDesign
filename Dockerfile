@@ -10,7 +10,7 @@ RUN npm cache clean --force
 # Copy files from local machine to virtual directory in docker image
 COPY . .
 RUN npm install
-RUN npm run build --configuration=production
+RUN npm run build --configuration=staging
 
 ### STAGE 2:RUN ###
 # Defining nginx image to be used
