@@ -35,28 +35,12 @@ export class DepartmentFrmComponent implements OnInit {
     return this.formValidation.get('name');
   }
 
-  get email() {
-    return this.formValidation.get('email');
-  }
-
-  get address() {
-    return this.formValidation.get('address');
-  }
-
-  get taxCode() {
-    return this.formValidation.get('taxCode');
-  }
-
-  get fax() {
-    return this.formValidation.get('fax');
-  }
-
   get description() {
     return this.formValidation.get('description');
   }
 
-  get phone() {
-    return this.formValidation.get('phone')
+  get note() {
+    return this.formValidation.get('note');
   }
 
   ngOnInit(): void {
@@ -67,16 +51,8 @@ export class DepartmentFrmComponent implements OnInit {
       id: ['',[]],
       code: ['', [Validators.required]],
       name: ['', [Validators.required]],
-      address: ['', []],
-      taxCode: ['', [Validators.required, Validators.pattern("[0-9 ]{13}")]],
-      fax: ['', [Validators.pattern("[0-9 ]{10}")]],
       description: ['', []],
-      phone: ['', [Validators.required, Validators.pattern("[0-9 ]{10}")]],
-      createdBy: ['',[]],
-      createdDate: ['',[]],
-      lastModifiedBy: ['',[]],
-      lastModifiedDate: ['',[]],
-      status: ['',[]]
+      note: ['',[]],
     });
 
     if (this.mode != ModeModal.CREATE) {
