@@ -15,7 +15,6 @@ export class CustomerApi {
     const params = new HttpParams()
     params.set('pageNumber', pageNumber)
     params.set('pageSize', pageSize)
-    params.set('txtSearch', txtSearch)
 
     return this.serviceBase.get(this.apiController, { params });
   }
