@@ -14,9 +14,8 @@ export class DepartmentApi {
 
   paging(pageNumber: number, pageSize: number, txtSearch: string): Observable<TableData<Department>> {
     let params = new HttpParams()
-    params.set('pageNumber', pageNumber)
-    params.set('pageSize', pageSize)
-    params.set('txtSearch', txtSearch)
+    .set('pageNumber', `${pageNumber}`)
+    .set('pageSize', `${pageSize}`)
 
     return this.serviceBase.get(this.apiController, { params });
   }
