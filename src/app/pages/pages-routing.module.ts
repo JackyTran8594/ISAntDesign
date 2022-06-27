@@ -13,6 +13,7 @@ const routes: Routes = [
       { path: 'role', loadChildren: () => import('../pages/system-management/role/role.module').then(m => m.RoleModule) },
       { path: 'user', loadChildren: () => import('../pages/system-management/user/user.module').then(m => m.UserModule) },
       { path: 'customer', loadChildren: () => import('../pages/customer-management/customer.module').then(m => m.CustomerModule) },
+      { path: 'department', loadChildren: () => import('./department-management/department-management.module').then(m => m.DepartmentManagementModule) },
     ]
   },
 
