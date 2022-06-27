@@ -1,135 +1,152 @@
 <div class="content-wrapper">
-    <div nz-row class="content-row">
-        <div nz-col class="gutter-row" [nzSpan]="12">
-            <p><b>Danh sách nhóm quyền</b></p>
-        </div>
-        <div nz-col class="gutter-row" [nzSpan]="6" [nzOffset]="6">
-            <div class="float-right">
-                <button nzShape="circle" [hidden]="!isCollapse" (click)="collapse()" nz-button nzType="default">
-                    <i nz-icon nzType="down" nzTheme="outline"></i>
-                </button>
-                <button nzShape="circle" [hidden]="isCollapse" (click)="collapse()" nz-button nzType="default">
-                    <i nz-icon nzType="up" nzTheme="outline"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-    <div nz-row class="content-row">
+  <div nz-row class="content-row">
+      <div nz-col class="gutter-row" [nzSpan]="12">
+          <p><b>Danh sách phòng ban</b></p>
+      </div>
+      <div nz-col class="gutter-row" [nzSpan]="6" [nzOffset]="6">
+          <div class="float-right">
+              <button nzShape="circle" [hidden]="!isCollapse" (click)="collapse()" nz-button nzType="default">
+                  <i nz-icon nzType="down" nzTheme="outline"></i>
+              </button>
+              <button nzShape="circle" [hidden]="isCollapse" (click)="collapse()" nz-button nzType="default">
+                  <i nz-icon nzType="up" nzTheme="outline"></i>
+              </button>
+          </div>
+      </div>
+  </div>
+  <div nz-row class="content-row">
 
-        <div nz-col [nzSpan]="18">
-            <div nz-row [nzGutter]="8">
-                <div nz-col [nzSpan]="20">
-                    <input nz-input [(ngModel)]="search.txtSearch" placeholder="Search..." [nzSize]="'default'" />
-                </div>
+      <div nz-col [nzSpan]="18">
+          <div nz-row [nzGutter]="8">
+              <div nz-col [nzSpan]="20">
+                  <input nz-input [(ngModel)]="search.txtSearch" placeholder="Search..." [nzSize]="'default'" />
+              </div>
 
-                <div nz-col [nzSpan]="4">
-                    <button nz-button nzType="primary" [nzSize]="'default'">
-                        Tìm kiếm
-                    </button>
-                </div>
-            </div>
+              <div nz-col [nzSpan]="4">
+                  <button nz-button nzType="primary" [nzSize]="'default'">
+                      Tìm kiếm
+                  </button>
+              </div>
+          </div>
 
-        </div>
+      </div>
 
-        <div nz-col [nzSpan]="6">
-            <div nz-row [nzGutter]="8">
-                <div nz-col [nzSpan]="24">
-                    <div class="float-right">
-                        <nz-space>
-                            <button nz-button nzType="primary" [nzSize]="'default'" (click)="onCreate()">
-                                Thêm
-                            </button>
-                            <button nz-button nzType="primary" nzDanger [nzSize]="'default'">
-                                Xóa tất cả
-                            </button>
-                        </nz-space>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div nz-col [nzSpan]="6">
+          <div nz-row [nzGutter]="8">
+              <div nz-col [nzSpan]="24">
+                  <div class="float-right">
+                      <nz-space>
+                          <button nz-button nzType="primary" [nzSize]="'default'" (click)="onCreate()">
+                              Thêm
+                          </button>
+                          <button nz-button nzType="primary" nzDanger [nzSize]="'default'">
+                              Xóa tất cả
+                          </button>
+                      </nz-space>
+                  </div>
+              </div>
+          </div>
+      </div>
 
-    </div>
+  </div>
 
-    <div nz-row class="content-row" [hidden]="!isCollapse">
-        <div nz-col [nzSpan]="12">
-            <div class="date-picker-custom">
-                <nz-date-picker [nzSize]="'default'" [(ngModel)]="search.fromDate"></nz-date-picker>
-                <nz-date-picker [nzSize]="'default'" [(ngModel)]="search.toDate"></nz-date-picker>
-            </div>
+  <div nz-row class="content-row" [hidden]="!isCollapse">
+      <div nz-col [nzSpan]="12">
+          <div class="date-picker-custom">
+              <nz-date-picker [nzSize]="'default'" [(ngModel)]="search.fromDate"></nz-date-picker>
+              <nz-date-picker [nzSize]="'default'" [(ngModel)]="search.toDate"></nz-date-picker>
+          </div>
 
-        </div>
-    </div>
+      </div>
+  </div>
 
-    <div nz-row class="content-row" [nzGutter]="4">
-        <!-- <nz-card class="card-custom"> -->
-        <div class="flex flex-col w-full h-full">
-            <div class="outer-table">
-                <div class="overflow-hidden">
-                    <table class="content-table-custom">
-                        <thead class="border-b">
-                            <tr>
-                                <th scope="col" class="table-col">
-                                    Checkbox
-                                </th>
-                                <th scope="col" class="table-col">
-                                    #
-                                </th>
-                                <th scope="col" class="table-col">
-                                    Tên người dùng
-                                </th>
-                                <th scope="col" class="table-col">
-                                    Số điện thoại
-                                </th>
-                                <th scope="col" class="table-col">
-                                    Email
-                                </th>
-                                <th scope="col" class="table-col-last">
-                                    Hành động
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b" *ngFor="let item of listData; let idx = index">
-                                <td class="table-col">Checkbox</td>
-                                <td class="table-col">
-                                    {{idx + 1}}
-                                </td>
-                                <td class="table-col">
-                                    {{item.username}}
-                                </td>
-                                <td class="table-col">
-                                    {{item.phoneNumber}}
-                                </td>
-                                <td class="table-col">
-                                    {{item.email}}
-                                </td>
-                                <td class="table-col">
-                                    <div nz-row class="text-center">
-                                        <div nz-col [nzSpan]="24">
-                                            <button nz-button nzType="primary" nzShape="circle" (click)="onView()"><i
-                                                    nz-icon nzType="exclamation-circle" nzTheme="outline"></i></button>
-                                            <button nz-button nzType="primary" nzShape="circle" (click)="onUpdate()"><i
-                                                    nz-icon nzType="edit" nzTheme="outline"></i></button>
-                                            <button nz-button nzType="primary" nzShape="circle" (click)="onDelete()"><i
-                                                    nz-icon nzType="delete" nzTheme="outline"></i></button>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div nz-row class="content-row" [nzGutter]="4">
-        <div nz-col [nzSpan]="12" [nzOffset]="12">
-            <div class="float-right">
-                <nz-pagination (nzPageSizeChange)="changePageSize($event)" [nzPageIndex]="page.pageNumber"
-                    [nzTotal]="page.totalElements" nzShowSizeChanger [nzPageSize]="page.pageSize" [nzShowTotal]="total">
-                </nz-pagination>
-                <ng-template #total>Tổng số bản ghi: {{page.totalElements}}</ng-template>
-            </div>
-        </div>
-    </div>
+  <div nz-row class="content-row" [nzGutter]="4">
+          <!-- <div class="flex flex-col w-full h-full"> -->
+          <div class="outer-table">
+              <!-- <div class="overflow-hidden"> -->
+              <table class="content-table-custom">
+                  <thead class="border-b flex w-full">
+                      <tr class="flex w-full items-center">
+                          <th scope="col" class="table-col w-1/12">
+                              #
+                          </th>
+                          <th scope="col" class="table-col w-1/12">
+                              Mã người dùng
+                          </th>
+                          <th scope="col" class="table-col w-1/4">
+                              Tên người dùng
+                          </th>
+                          <th scope="col" class="table-col w-1/4">
+                              Email
+                          </th>
+                          <th scope="col" class="table-col w-1/6">
+                              SĐT
+                          </th>
+                          <th scope="col" class="table-col w-1/6">
+                              Vị trí
+                          </th>
+                          <th scope="col" class="table-col w-1/4">
+                              Ghi chú
+                          </th>
+                          <th scope="col" class="table-col-last w-1/4">
+                              Hành động
+                          </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr class="border-b flex w-full" *ngFor="let item of listData; let idx = index">
+                          <td class="table-col w-[8.6%]">
+                              {{idx + 1}}
+                          </td>
+                          <td class="table-col w-[17.2%]">
+                              {{item.code}}
+                          </td>
+                          <td class="table-col w-[17.2%]">
+                              {{item.fullname}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.email}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.phoneNumber}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.position}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.note}}
+                          </td>
+                          <td class="table-col w-[24%]">
+                              <div nz-row class="text-center">
+                                  <div nz-col [nzSpan]="24">
+                                      <button nz-button nzType="primary" nzShape="circle" (click)="onView(item)"><i
+                                              nz-icon nzType="exclamation-circle" nzTheme="outline"></i></button>
+                                      <button nz-button nzType="primary" nzShape="circle" (click)="onUpdate(item)"><i
+                                              nz-icon nzType="edit" nzTheme="outline"></i></button>
+                                      <button nz-button nzType="primary" nzShape="circle"
+                                          (click)="onDelete(item.id)"><i nz-icon nzType="delete"
+                                              nzTheme="outline"></i></button>
+                                  </div>
+                              </div>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      <!-- </div> -->
+      <!-- </div> -->
+  </div>
+  <div nz-row class="content-row" [nzGutter]="4">
+      <div nz-col [nzSpan]="12" [nzOffset]="12">
+          <div class="float-right">
+              <nz-pagination (nzPageIndexChange)="changePageNumber($event)"
+                  (nzPageSizeChange)="changePageSize($event)" [(nzPageIndex)]="page.pageNumber"
+                  [nzTotal]="page.totalElements" nzShowSizeChanger [(nzPageSize)]="page.pageSize"
+                  [nzShowTotal]="total">
+              </nz-pagination>
+              <ng-template #total let-total>Tổng số bản ghi: {{page.totalElements}}</ng-template>
+              <!-- <nz-pagination [nzPageIndex]="3" [nzTotal]="500" nzShowSizeChanger [nzPageSize]="10"></nz-pagination> -->
+          </div>
+      </div>
+  </div>
 </div>

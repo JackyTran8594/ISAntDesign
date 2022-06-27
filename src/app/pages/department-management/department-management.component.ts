@@ -16,16 +16,11 @@ import { Department, DepartmentData } from './service/department';
 export class DepartmentManagementComponent implements OnInit {
 
   isCollapse: boolean = false;
-  checkedBoxAll: boolean = false;
 
   listData: Department[] = [];
   search: SearchParams = {
     txtSearch: ''
   };
-
-  // pageNumber = 1;
-  // pageSize = 10;
-  // totalElement = 0;
 
   page: PageObject = {
     pageNumber: 1,

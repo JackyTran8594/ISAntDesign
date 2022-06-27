@@ -2,7 +2,7 @@ import { Observable } from "rxjs";
 import { BaseObject } from "src/app/@core/interface/baseObject";
 import { TableData } from "src/app/@core/interface/TableData";
 
-export interface Department {
+export interface Department extends BaseObject {
     id: number;
     name?: string;
     code?: string;

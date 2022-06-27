@@ -2,31 +2,16 @@
   <form nz-form [formGroup]="formValidation">
       <!-- row 1 -->
       <div nz-row class="flex flex-row" [nzGutter]="8">
-          <div nz-col [nzSpan]="12">
-              <nz-form-item nz-row [nzGutter]="2">
-                  <nz-form-label nz-col [nzSpan]="6">
-                      Mã khách hàng <span style="color:red ;">*</span>
-                  </nz-form-label>
-                  <nz-form-control nz-col [nzSpan]="18" nzErrorTip="Bắt buộc!">
-                      <input nz-input placeholder="Mã khách hàng" formControlName="code" name="code" required />
-                  </nz-form-control>
-              </nz-form-item>
-          </div>
-
-          <div nz-col [nzSpan]="12">
-              <nz-form-item nz-row [nzGutter]="2">
-                  <nz-form-label [nzSpan]="6">
-                      Mã số thuế <span style="color:red;">*</span>
-                  </nz-form-label>
-                  <nz-form-control [nzSpan]="18" [nzErrorTip]="taxCodeError">
-                      <input nz-input placeholder="Mã số thuế" formControlName="taxCode" name="taxCode" required />
-                  </nz-form-control>
-                  <ng-template #taxCodeError>
-                      <ng-container *ngIf="formValidation.controls['taxCode'].hasError('required')">Bắt buộc !</ng-container>
-                      <ng-container *ngIf="formValidation.controls['taxCode'].hasError('pattern')">Sai định dạng (13 chữ số) !</ng-container>
-                  </ng-template>
-              </nz-form-item>
-          </div>
+        <div nz-col [nzSpan]="24">
+            <nz-form-item nz-row [nzGutter]="2">
+                <nz-form-label nz-col [nzSpan]="3">
+                    Mã phòng ban <span style="color:red ;">*</span>
+                </nz-form-label>
+                <nz-form-control nz-col [nzSpan]="21" nzErrorTip="Bắt buộc!">
+                    <input nz-input placeholder="Mã phòng ban" formControlName="code" name="code" required />
+                </nz-form-control>
+            </nz-form-item>
+        </div>
       </div>
 
       <!-- row 2 -->
@@ -34,10 +19,10 @@
           <div nz-col [nzSpan]="24">
               <nz-form-item nz-row [nzGutter]="2">
                   <nz-form-label nz-col [nzSpan]="3">
-                      Tên <span style="color:red ;">*</span>
+                      Tên phòng ban <span style="color:red ;">*</span>
                   </nz-form-label>
                   <nz-form-control nz-col [nzSpan]="21" nzErrorTip="Bắt buộc!">
-                      <input nz-input placeholder="Tên khách hàng" formControlName="name" name="name" required />
+                      <input nz-input placeholder="Tên phòng ban" formControlName="name" name="name" required />
                   </nz-form-control>
               </nz-form-item>
           </div>

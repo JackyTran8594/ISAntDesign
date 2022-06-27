@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd/modal';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { DeleteComponent } from 'src/app/shared/component/delete/delete.component';
+import { ModeModal } from 'src/app/shared/constant/constant';
 import { PageObject } from 'src/app/shared/service/pageObject';
 import { SearchParams } from 'src/app/shared/service/searchParams';
 import { User, UserData } from './service/user';
@@ -68,25 +69,30 @@ export class UserComponent implements OnInit {
   changePageSize(event: any): void {
   }
 
+  changePageNumber(event: any) {
+    this.searchData()
+  }
+
   collapse() {
     this.isCollapse = !this.isCollapse;
   }
 
-  onUpdate(): void {
+  onUpdate(item: User): void {
     this.modalService.create({
-      nzTitle: 'Chỉnh sửa nhóm quyền',
+      nzTitle: 'Chỉnh sửa thông tin người dùng',
       nzContent: UserFrmComponent,
       nzCentered: true,
       nzMaskClosable: false,
       nzComponentParams: {
-        isUpdate: true
+        mode: ModeModal.UPDATE,
+        id: item.id
       },
       nzDirection: 'ltr' // left to right
     }).afterClose.subscribe({
       next: (res) => {
         console.log(res);
         if (res) {
-          this.notifyService.success('Thành công', 'Chỉnh sửa nhóm quyền', this.modalOptions);
+          this.notifyService.success('Thành công', 'Chỉnh sửa thông tin người dùng', this.modalOptions);
         }
 
       },
@@ -97,15 +103,17 @@ export class UserComponent implements OnInit {
 
   }
 
-  onView(): void {
+  onView(item: User): void {
     this.modalService.create({
-      nzTitle: 'Xem nhóm quyền',
+      nzTitle: 'Xem chi tiết người dùng',
       nzContent: UserFrmComponent,
 
       nzCentered: true,
       nzMaskClosable: false,
       nzComponentParams: {
-        isView: true
+        mode: ModeModal.VIEW,
+        title: 'Xem chi tiết người dùng',
+        id: item.id
       },
       nzDirection: 'ltr' // left to right
     })
@@ -114,14 +122,14 @@ export class UserComponent implements OnInit {
   onCreate(): void {
     this.modalService.create(
       {
-        nzTitle: 'Thêm nhóm quyền',
+        nzTitle: 'Thêm người dùng',
         nzClassName: 'modal-custom',
         nzContent: UserFrmComponent,
         nzWidth: 'modal-custom',
         nzCentered: true,
         nzMaskClosable: false,
         nzComponentParams: {
-          isCreate: true,
+          mode: ModeModal.CREATE,
           title: 'Thêm nhóm quyền'
         },
         nzDirection: 'ltr' // left to right
@@ -132,7 +140,7 @@ export class UserComponent implements OnInit {
           next: (res) => {
             console.log(res);
             if (res) {
-              this.notifyService.success('Thành công', 'Thêm mới nhóm quyền', this.modalOptions);
+              this.notifyService.success('Thành công', 'Thêm mới người dùng', this.modalOptions);
             }
 
           },
@@ -143,10 +151,10 @@ export class UserComponent implements OnInit {
       )
   }
 
-  onDelete(): void {
+  onDelete(id: number): void {
     this.modalService.create(
       {
-        nzTitle: 'Xóa nhóm quyền',
+        nzTitle: 'Xóa người dùng',
         nzContent: DeleteComponent,
         nzCentered: true,
         nzMaskClosable: false,
@@ -156,7 +164,7 @@ export class UserComponent implements OnInit {
       next: (res) => {
         console.log(res);
         if (res) {
-          this.notifyService.success('Thành công', 'Xóa nhóm quyền', this.modalOptions);
+          this.notifyService.success('Thành công', 'Xóa người dùng', this.modalOptions);
         }
 
       },

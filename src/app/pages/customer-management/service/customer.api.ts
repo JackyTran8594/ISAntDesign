@@ -13,9 +13,10 @@ export class CustomerApi {
 
   paging(pageNumber: number, pageSize: number, txtSearch: string): Observable<TableData<Customer>> {
     const params = new HttpParams()
-    .set('pageNumber', `${pageNumber}`)
-    .set('pageSize', `${pageSize}`)
-   
+    params.set('pageNumber', pageNumber)
+    params.set('pageSize', pageSize)
+    params.set('txtSearch', txtSearch)
+
     return this.serviceBase.get(this.apiController, { params });
   }
 
@@ -30,7 +31,7 @@ export class CustomerApi {
   getById(id: number): Observable<Customer> {
     return this.serviceBase.get(`${this.apiController}/${id}`);
   }
-  
+
   delete(id: number): Observable<Boolean> {
     return this.serviceBase.delete(`${this.apiController}/${id}`);
   }

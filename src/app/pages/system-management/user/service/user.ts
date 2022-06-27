@@ -3,12 +3,15 @@ import { BaseObject } from "src/app/@core/interface/baseObject";
 import { TableData } from "src/app/@core/interface/TableData";
 
 export interface User extends BaseObject {
-    id?: number;
+    id: number;
     username?: string;
     code?: string;
     fullname?: string;
     email?: string;
     phoneNumber?: string;
+    position?: string;
+    note?: string;
+    password?: string;
 }
 
 export abstract class UserData {

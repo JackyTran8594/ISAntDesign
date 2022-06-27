@@ -2,7 +2,7 @@
     <div nz-row class="flex flex-row" [nzGutter]="8">
         <div nz-col [nzSpan]="8">
             <div nz-row [nzGutter]="2">
-           
+
                 <div nz-col [nzSpan]="12">
                     <label> Mã hợp đồng:<span style="color:red">*</span></label>
                 </div>
@@ -126,7 +126,7 @@
     <button nz-button nzType="default" (click)="handleCancel()">Hủy</button>
 </div> -->
 <div class="modal-content">
-    <form nz-form [formGroup]="formValidation">
+    <form nz-form [formGroup]="formValidation" method="POST">
         <!-- row 1 -->
         <div nz-row class="flex flex-row" [nzGutter]="8">
             <div nz-col [nzSpan]="12">

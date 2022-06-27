@@ -32,7 +32,7 @@ const MODULES = [
 @NgModule({
   declarations: [
     PagesComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
   ],
   imports: [
     CommonModule,
