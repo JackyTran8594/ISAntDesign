@@ -13,8 +13,8 @@ export class CustomerApi {
 
   paging(pageNumber: number, pageSize: number, txtSearch: string): Observable<TableData<Customer>> {
     const params = new HttpParams()
-    params.set('pageNumber', pageNumber)
-    params.set('pageSize', pageSize)
+    .set('pageNumber', `${pageNumber}`)
+    .set('pageSize', `${pageSize}`)
 
     return this.serviceBase.get(this.apiController, { params });
   }
