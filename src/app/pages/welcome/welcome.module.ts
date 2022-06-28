@@ -23,6 +23,7 @@ import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const MODULES = [
   NzCardModule,
@@ -43,7 +44,7 @@ const MODULES = [
 
 
 @NgModule({
-  imports: [WelcomeRoutingModule, CommonModule, ...MODULES],
+  imports: [FormsModule, ReactiveFormsModule, WelcomeRoutingModule, CommonModule, ...MODULES],
   declarations: [WelcomeComponent, WelcomeFrmComponent],
   exports: [WelcomeComponent],
   providers: [

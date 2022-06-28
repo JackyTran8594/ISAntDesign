@@ -5,6 +5,7 @@ import { NzTrMeasureComponent } from 'ng-zorro-antd/table';
 import { DeleteComponent } from 'src/app/shared/component/delete/delete.component';
 import { ItemData } from './service/welcome';
 import { WelcomeFrmComponent } from './welcome-frm/welcome-frm.component';
+import { ModeModal } from 'src/app/shared/constant/constant';
 
 @Component({
   selector: 'app-welcome',
@@ -18,6 +19,7 @@ export class WelcomeComponent implements OnInit {
   modalOptions: any = {
     nzDuration: 2000
   }
+
 
   listOfSelection = [
     {
@@ -137,7 +139,8 @@ export class WelcomeComponent implements OnInit {
         nzCentered: true,
         nzMaskClosable: false,
         nzComponentParams: {
-          isCreate: true,
+          mode: ModeModal.CREATE,
+          title: 'Thêm welcome'
         },
         nzDirection: 'ltr' // left to right
       }

@@ -1,4 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { NzModalRef } from 'ng-zorro-antd/modal';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ModeModal } from 'src/app/shared/constant/constant';
 
 @Component({
   selector: 'app-welcome-frm',
@@ -7,11 +11,15 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class WelcomeFrmComponent implements OnInit {
 
+  formValidation!: FormGroup;
+
+  @Input() mode!: string;
+  @Input() title: string = '';
   @Input() isUpdate: boolean = false;
   @Input() isView: boolean = false;
   @Input() isCreate: boolean = false;
 
-  constructor() { }
+  constructor(private fb: FormBuilder, private notification: NzNotificationService, private modelRef: NzModalRef<WelcomeFrmComponent>) { }
 
   ngOnInit(): void {
   }
