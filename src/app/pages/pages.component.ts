@@ -8,7 +8,7 @@ import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 export class PagesComponent implements OnInit{
 
   isCollapsed = false;
-  
+
   constructor(private elementRef: ElementRef, private renderer2: Renderer2) {
 
   }
@@ -27,7 +27,11 @@ export class PagesComponent implements OnInit{
         this.renderer2.setStyle(sidebar, "display", "inline-block");
       }
     }
-   
+
+  }
+
+  clrLocal() {
+    localStorage.clear();
   }
 
 
