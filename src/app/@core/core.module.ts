@@ -7,6 +7,7 @@ import { RoleModule } from '../pages/system-management/role/role.module';
 import { UserModule } from '../pages/system-management/user/user.module';
 import { CustomerModule } from '../pages/customer-management/customer.module';
 import { DepartmentManagementModule } from '../pages/department-management/department-management.module';
+import { PackingListModule } from '../pages/contract-and-po/packing-list/packing-list.module';
 
 const SERVICE = [
   HttpService
@@ -19,6 +20,7 @@ export const CORE_PROVIDERS = [
   UserModule.forRoot().providers,
   CustomerModule.forRoot().providers,
   DepartmentManagementModule.forRoot().providers,
+  PackingListModule.forRoot().providers,
 ]
 
 @NgModule({

@@ -1,7 +1,6 @@
 import { Observable } from "rxjs";
 import { BaseObject } from "src/app/@core/interface/baseObject";
 import { TableData } from "src/app/@core/interface/TableData";
-import { Customer } from "src/app/pages/customer-management/service/customer";
 
 export interface PackingList {
     id: number;
@@ -9,21 +8,16 @@ export interface PackingList {
     dpCode?: string;
     description?: string;
     address?: string;
-
-    createdBy?:string;
-    createdDate?:Date;
-    lastModifiedBy?:string;
-    lastModifiedDate?:Date;
-    status?:string;
-    isChecked?: Boolean;
+    plDate?: Date;
+    note?: string;
 }
 
 
-export abstract class CustomerData {
-    abstract paging(pageNumber: number, pageSize: number, txtSearch: string): Observable<TableData<Customer>>
-    abstract add(item: Customer): Observable<Customer>
-    abstract update(item: Customer): Observable<Customer>
-    abstract getById(id: number): Observable<Customer>
+export abstract class PackingListData {
+    abstract paging(pageNumber: number, pageSize: number, txtSearch: string): Observable<TableData<PackingList>>
+    abstract add(item: PackingList): Observable<PackingList>
+    abstract update(item: PackingList): Observable<PackingList>
+    abstract getById(id: number): Observable<PackingList>
     abstract delete(id: number): Observable<Boolean>
     abstract deleteAll(listId: number[]): Observable<Boolean>
 }

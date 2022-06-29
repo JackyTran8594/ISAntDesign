@@ -14,6 +14,7 @@ const routes: Routes = [
       { path: 'user', loadChildren: () => import('../pages/system-management/user/user.module').then(m => m.UserModule) },
       { path: 'customer', loadChildren: () => import('../pages/customer-management/customer.module').then(m => m.CustomerModule) },
       { path: 'department', loadChildren: () => import('./department-management/department-management.module').then(m => m.DepartmentManagementModule) },
+      { path: 'pl', loadChildren: () => import('../pages/contract-and-po/packing-list/packing-list.module').then(m => m.PackingListModule) },
     ]
   },
 
