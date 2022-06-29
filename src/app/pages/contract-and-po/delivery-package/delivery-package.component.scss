@@ -1,0 +1,67 @@
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+.content-wrapper {
+  @apply flex flex-col;
+}
+
+.content-wrapper .content-row {
+  @apply mb-2;
+}
+
+.card-custom {
+  @apply h-full w-full;
+}
+
+// ::ng-deep .card-custom nz-table {
+//   @apply sm:max-h-full sm:max-w-full;
+// }
+
+.outer-table {
+  // @apply min-w-full h-full;
+  height: 45vh;
+  @apply w-full;
+
+}
+
+.content-table-custom {
+  @apply min-w-full border text-center;
+
+  // overflow-y: scroll;
+  // // border: 1px solid;
+  // height: 100px !important;
+  // width: 100%;
+}
+
+.content-table-custom tbody {
+  @apply flex flex-col items-center justify-between  w-full;
+  @apply overflow-y-scroll;
+  height: 32vh;
+
+}
+
+
+// .content-table-custom tbody tr {
+//   @apply flex w-full;
+// }
+
+
+
+// .content-table-custom table {
+//   @apply min-w-full sm:w-full md:w-full;
+//   @apply overflow-y-scroll;
+// }
+
+.date-picker-custom nz-date-picker {
+  @apply mr-2;
+}
+
+.table-col {
+  @apply text-sm px-6 py-4 border-r;
+}
+
+.table-col-last {
+  @apply text-sm px-6 py-4 ;
+}

@@ -15,6 +15,7 @@ const routes: Routes = [
       { path: 'customer', loadChildren: () => import('../pages/customer-management/customer.module').then(m => m.CustomerModule) },
       { path: 'department', loadChildren: () => import('./department-management/department-management.module').then(m => m.DepartmentManagementModule) },
       { path: 'pl', loadChildren: () => import('../pages/contract-and-po/packing-list/packing-list.module').then(m => m.PackingListModule) },
+      { path: 'dp', loadChildren: () => import('../pages/contract-and-po/delivery-package/delivery-package.module').then(m => m.DeliveryPackageModule) },
     ]
   },
 

@@ -5,20 +5,20 @@ import { DeleteComponent } from 'src/app/shared/component/delete/delete.componen
 import { ModeModal } from 'src/app/shared/constant/constant';
 import { PageObject } from 'src/app/shared/service/pageObject';
 import { SearchParams } from 'src/app/shared/service/searchParams';
-import { PackingList, PackingListData } from './service/packing-list';
-import { PackingListFrmComponent } from './packing-list-frm/packing-list-frm.component';
+import { DeliveryPackageFrmComponent } from './delivery-package-frm/delivery-package-frm.component';
+import { DeliveryPackage, DeliveryPackageData } from './service/delivery-package';
 
 @Component({
-  selector: 'app-packing-list',
-  templateUrl: './packing-list.component.html',
-  styleUrls: ['./packing-list.component.scss']
+  selector: 'app-delivery-package',
+  templateUrl: './delivery-package.component.html',
+  styleUrls: ['./delivery-package.component.scss']
 })
-export class PackingListComponent implements OnInit {
+export class DeliveryPackageComponent implements OnInit {
 
   isCollapse: boolean = false;
   checkedBoxAll: boolean = false;
 
-  listData: PackingList[] = [];
+  listData: DeliveryPackage[] = [];
   search: SearchParams = {
     txtSearch: ''
   };
@@ -39,7 +39,7 @@ export class PackingListComponent implements OnInit {
 
 
 
-  constructor(private modalService: NzModalService, private notifyService: NzNotificationService, private service: PackingListData) { }
+  constructor(private modalService: NzModalService, private notifyService: NzNotificationService, private service: DeliveryPackageData) { }
 
   ngOnInit() {
     // console.log(this.page);
@@ -80,11 +80,11 @@ export class PackingListComponent implements OnInit {
     this.isCollapse = !this.isCollapse;
   }
 
-  onUpdate(item: PackingList): void {
+  onUpdate(item: DeliveryPackage): void {
     this.modalService.create({
-      nzTitle: 'Chỉnh sửa bảng kê',
+      nzTitle: 'Chỉnh sửa danh sách',
       nzClassName: 'modal-custom',
-      nzContent: PackingListFrmComponent,
+      nzContent: DeliveryPackageFrmComponent,
       nzWidth: 'modal-custom',
       nzCentered: true,
       nzMaskClosable: false,
@@ -97,7 +97,7 @@ export class PackingListComponent implements OnInit {
       next: (res) => {
         console.log(res);
         if (res) {
-          this.notifyService.success('Thành công', 'Chỉnh sửa bảng kê', this.modalOptions);
+          this.notifyService.success('Thành công', 'Chỉnh sửa danh sách', this.modalOptions);
         }
         this.searchData();
       },
@@ -108,17 +108,17 @@ export class PackingListComponent implements OnInit {
 
   }
 
-  onView(item: PackingList): void {
+  onView(item: DeliveryPackage): void {
     this.modalService.create({
-      nzTitle: 'Xem bảng kê hàng hóa',
+      nzTitle: 'Xem danh sách',
       nzClassName: 'modal-custom',
-      nzContent: PackingListFrmComponent,
+      nzContent: DeliveryPackageFrmComponent,
       nzWidth: 'modal-custom',
       nzCentered: true,
       nzMaskClosable: false,
       nzComponentParams: {
         mode: ModeModal.VIEW,
-        title: 'Xem chi tiết bảng kê',
+        title: 'Xem chi tiết danh sách',
         id: item.id
       },
       nzDirection: 'ltr' // left to right
@@ -128,15 +128,15 @@ export class PackingListComponent implements OnInit {
   onCreate(): void {
     this.modalService.create(
       {
-        nzTitle: 'Thêm bảng kê',
+        nzTitle: 'Thêm danh sách',
         nzClassName: 'modal-custom',
-        nzContent: PackingListFrmComponent,
+        nzContent: DeliveryPackageFrmComponent,
         nzWidth: 'modal-custom',
         nzCentered: true,
         nzMaskClosable: false,
         nzComponentParams: {
           mode: ModeModal.CREATE,
-          title: 'Thêm bảng kê'
+          title: 'Thêm danh sách'
         },
         nzDirection: 'ltr' // left to right
       }
@@ -146,7 +146,7 @@ export class PackingListComponent implements OnInit {
           next: (res) => {
             console.log(res);
             if (res) {
-              this.notifyService.success('Thành công', 'Thêm mới bảng kê', this.modalOptions);
+              this.notifyService.success('Thành công', 'Thêm mới danh sách', this.modalOptions);
             }
             this.searchData();
           },
@@ -160,7 +160,7 @@ export class PackingListComponent implements OnInit {
   onDelete(id: number): void {
     this.modalService.create(
       {
-        nzTitle: 'Xóa bảng kê',
+        nzTitle: 'Xóa danh sách',
         nzClassName: 'modal-custom',
         nzContent: DeleteComponent,
         nzCentered: true,
@@ -174,7 +174,7 @@ export class PackingListComponent implements OnInit {
           this.service.delete(id).subscribe({
             next: (res) => {
               if(res) {
-                this.notifyService.success('Thành công', 'Xóa bảng kê', this.modalOptions);
+                this.notifyService.success('Thành công', 'Xóa danh sách', this.modalOptions);
               }
               this.searchData();
             },
