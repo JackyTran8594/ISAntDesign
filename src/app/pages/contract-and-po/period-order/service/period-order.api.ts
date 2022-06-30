@@ -3,15 +3,15 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpService } from 'src/app/@core/backend/common/http.service';
 import { TableData } from 'src/app/@core/interface/TableData';
-import { BankGuarantee } from './bank-guarantee';
+import { PeriodOrder } from './period-order';
 
 @Injectable()
-export class BankGuaranteeApi {
-  private readonly apiController = 'bankGuarantee';
+export class PeriodOrderApi {
+  private readonly apiController = 'periodOrder';
 
   constructor(private serviceBase: HttpService) { }
 
-  paging(pageNumber: number, pageSize: number, txtSearch: string): Observable<TableData<BankGuarantee>> {
+  paging(pageNumber: number, pageSize: number, txtSearch: string): Observable<TableData<PeriodOrder>> {
     const params = new HttpParams()
     .set('pageNumber', `${pageNumber}`)
     .set('pageSize', `${pageSize}`)
@@ -20,15 +20,15 @@ export class BankGuaranteeApi {
     return this.serviceBase.get(this.apiController, { params });
   }
 
-  add(item: BankGuarantee): Observable<BankGuarantee> {
+  add(item: PeriodOrder): Observable<PeriodOrder> {
     return this.serviceBase.post(this.apiController, item);
   }
 
-  update(item: BankGuarantee): Observable<BankGuarantee> {
+  update(item: PeriodOrder): Observable<PeriodOrder> {
     return this.serviceBase.put(`${this.apiController}/${item.id}`, item);
   }
 
-  getById(id: number): Observable<BankGuarantee> {
+  getById(id: number): Observable<PeriodOrder> {
     return this.serviceBase.get(`${this.apiController}/${id}`);
   }
 

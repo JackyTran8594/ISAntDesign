@@ -18,6 +18,7 @@ const routes: Routes = [
       { path: 'dp', loadChildren: () => import('../pages/contract-and-po/delivery-package/delivery-package.module').then(m => m.DeliveryPackageModule) },
       { path: 'function', loadChildren: () => import('../pages/system-management/function/function.module').then(m => m.FunctionModule) },
       { path: 'guarantee', loadChildren: () => import('../pages/contract-and-po/bank-guarantee/bank-guarantee.module').then(m => m.BankGuaranteeModule) },
+      { path: 'po', loadChildren: () => import('../pages/contract-and-po/period-order/period-order.module').then(m => m.PeriodOrderModule) },
     ]
   },
 

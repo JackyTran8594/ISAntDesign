@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <div nz-row class="content-row">
       <div nz-col class="gutter-row" [nzSpan]="12">
-          <p><b>Danh sách yêu cầu</b></p>
+          <p><b>Danh sách đơn hàng</b></p>
       </div>
       <div nz-col class="gutter-row" [nzSpan]="6" [nzOffset]="6">
           <div class="float-right">
@@ -71,13 +71,31 @@
                               #
                           </th>
                           <th scope="col" class="table-col w-1/6">
-                              Mã đơn hàng
+                              Mã hóa đơn
                           </th>
                           <th scope="col" class="table-col w-1/6">
-                              Mã liên hệ
+                              Số hóa đơn
+                          </th>
+                          <th scope="col" class="table-col w-1/4">
+                              Mô tả
                           </th>
                           <th scope="col" class="table-col w-1/4">
                               Giá trị
+                          </th>
+                          <th scope="col" class="table-col w-1/4">
+                              Nội dung thanh toán
+                          </th>
+                          <th scope="col" class="table-col w-1/4">
+                              Địa chỉ
+                          </th>
+                          <th scope="col" class="table-col w-1/4">
+                              Nội dung thanh toán
+                          </th>
+                          <th scope="col" class="table-col w-1/6">
+                              Ngày thanh toán
+                          </th>
+                          <th scope="col" class="table-col w-1/6">
+                              Hiệu lực đơn hàng
                           </th>
                           <th scope="col" class="table-col w-1/4">
                               Ghi chú
@@ -96,10 +114,28 @@
                               {{item.poCode}}
                           </td>
                           <td class="table-col w-[17.2%]">
-                              {{item.contactCode}}
+                              {{item.poNumber}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.description}}
                           </td>
                           <td class="table-col w-[26%]">
                               {{item.value}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.paymentContent}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.bankGuarantee}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.address}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.poDate}}
+                          </td>
+                          <td class="table-col w-[26%]">
+                              {{item.timeLine}}
                           </td>
                           <td class="table-col w-[26%]">
                               {{item.note}}

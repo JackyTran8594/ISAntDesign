@@ -11,6 +11,7 @@ import { PackingListModule } from '../pages/contract-and-po/packing-list/packing
 import { DeliveryPackageModule } from '../pages/contract-and-po/delivery-package/delivery-package.module';
 import { FunctionModule } from '../pages/system-management/function/function.module';
 import { BankGuaranteeModule } from '../pages/contract-and-po/bank-guarantee/bank-guarantee.module';
+import { PeriodOrderModule } from '../pages/contract-and-po/period-order/period-order.module';
 
 const SERVICE = [
   HttpService
@@ -27,6 +28,7 @@ export const CORE_PROVIDERS = [
   DeliveryPackageModule.forRoot().providers,
   FunctionModule.forRoot().providers,
   BankGuaranteeModule.forRoot().providers,
+  PeriodOrderModule.forRoot().providers,
 ]
 
 @NgModule({

@@ -1,0 +1,143 @@
+<div class="modal-content">
+  <form nz-form [formGroup]="formValidation">
+
+      <!-- row 1 -->
+      <div nz-row class="flex flex-row" [nzGutter]="8">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nz-row [nzGutter]="2">
+                  <nz-form-label nz-col [nzSpan]="6">
+                    Mã đơn hàng <span style="color:red ;">*</span>
+                  </nz-form-label>
+                  <nz-form-control nz-col [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                      <input nz-input placeholder="Mã đơn hàng" formControlName="poCode" name="poCode" required />
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nz-row [nzGutter]="2">
+                  <nz-form-label nz-col [nzSpan]="6">
+                    Số hóa đơn <span style="color:red ;">*</span>
+                  </nz-form-label>
+                  <nz-form-control nz-col [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                      <input nz-input placeholder="Số hóa đơn" formControlName="poNumber" name="poNumber" required />
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+
+      <!-- row 2 -->
+      <div nz-row class="flex flex-row" [nzGutter]="8">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nz-row [nzGutter]="2">
+                  <nz-form-label nz-col [nzSpan]="6">
+                    Giá trị <span style="color:red ;">*</span>
+                  </nz-form-label>
+                  <nz-form-control nz-col [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                      <input nz-input placeholder="Giá trị" formControlName="value" name="value" required />
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nz-row [nzGutter]="2">
+                  <nz-form-label nz-col [nzSpan]="6">
+                    Yêu cầu bảo lãnh <span style="color:red ;">*</span>
+                  </nz-form-label>
+                  <nz-form-control nz-col [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                      <input nz-input placeholder="Yêu cầu bảo lãnh" formControlName="bankGuarantee" name="bankGuarantee" required />
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+
+      <!-- row 3 -->
+      <div nz-row class="flex flex-row" [nzGutter]="8">
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nz-row [nzGutter]="2">
+                  <nz-form-label [nzSpan]="6">
+                      Ngày thanh toán <span style="color:red;">*</span>
+                  </nz-form-label>
+                  <nz-form-control [nzSpan]="18" nzErrorTip="Bắt buộc!">
+                      <nz-date-picker [nzSize]="'default'" formControlName="poDate" style="width:100%;">
+                      </nz-date-picker>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+          <div nz-col [nzSpan]="12">
+              <nz-form-item nz-row [nzGutter]="2">
+                  <nz-form-label [nzSpan]="6">
+                      Hiệu lực đơn hàng<span style="color:red;">*</span>
+                  </nz-form-label>
+                  <nz-form-control [nzSpan]="18">
+                      <nz-date-picker [nzSize]="'default'" formControlName="timeLine" style="width:100%;">
+                      </nz-date-picker>
+                  </nz-form-control>
+              </nz-form-item>
+          </div>
+      </div>
+
+      <!-- row 3 -->
+      <div nz-row class="flex flex-row" [nzGutter]="8">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item nz-row [nzGutter]="2">
+                <nz-form-label [nzSpan]="3">
+                    Nội dung thanh toán <span style="color:red;">*</span>
+                </nz-form-label>
+                <nz-form-control [nzSpan]="21">
+                    <textarea nz-input rows="3" Placeholder="Nội dung thanh toán" formControlName="paymentContent" name="paymentContent"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+      </div>
+
+      <!-- row 3 -->
+      <div nz-row class="flex flex-row" [nzGutter]="8">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item nz-row [nzGutter]="2">
+                <nz-form-label [nzSpan]="3">
+                    Địa chỉ <span style="color:red;">*</span>
+                </nz-form-label>
+                <nz-form-control [nzSpan]="21">
+                    <textarea nz-input rows="3" Placeholder="Địa chỉ" formControlName="address" name="address"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+      </div>
+
+      <!-- row 3 -->
+      <div nz-row class="flex flex-row" [nzGutter]="8">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item nz-row [nzGutter]="2">
+                <nz-form-label [nzSpan]="3">
+                    Mô tả
+                </nz-form-label>
+                <nz-form-control [nzSpan]="21">
+                    <textarea nz-input rows="3" Placeholder="Mô tả" formControlName="description" name="description"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+      </div>
+
+      <!-- row 3 -->
+      <div nz-row class="flex flex-row" [nzGutter]="8">
+        <div nz-col [nzSpan]="24">
+            <nz-form-item nz-row [nzGutter]="2">
+                <nz-form-label [nzSpan]="3">
+                    Ghi chú
+                </nz-form-label>
+                <nz-form-control [nzSpan]="21">
+                    <textarea nz-input rows="3" Placeholder="Ghi chú" formControlName="note" name="note"></textarea>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
+      </div>
+
+  </form>
+
+  <div class="modal-footer" *nzModalFooter>
+      <button [hidden]="mode == 'view'" nz-button nzType="primary" [disabled]="!formValidation.valid" (click)="handleOk()"
+          [nzLoading]="isConfirmLoading">Lưu</button>
+      <button nz-button nzType="default" (click)="handleCancel()">Hủy</button>
+  </div>
+</div>

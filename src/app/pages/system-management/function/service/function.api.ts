@@ -15,7 +15,7 @@ export class FunctionApi {
     const params = new HttpParams()
     .set('pageNumber', `${pageNumber}`)
     .set('pageSize', `${pageSize}`)
-    // .set('txtSearch', `${txtSearch}`);
+    .set('txtSearch', `${txtSearch}`);
 
     return this.serviceBase.get(this.apiController, { params });
   }
