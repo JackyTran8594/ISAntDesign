@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <div nz-row class="content-row">
       <div nz-col class="gutter-row" [nzSpan]="12">
-          <p><b>Danh sách bảng kê hàng hóa</b></p>
+          <p><b>Danh sách yêu cầu</b></p>
       </div>
       <div nz-col class="gutter-row" [nzSpan]="6" [nzOffset]="6">
           <div class="float-right">
@@ -71,19 +71,13 @@
                               #
                           </th>
                           <th scope="col" class="table-col w-1/6">
-                              Mã bảng kê
+                              Mã PO
                           </th>
                           <th scope="col" class="table-col w-1/6">
-                              Mã gói
+                              Mã liên hệ
                           </th>
                           <th scope="col" class="table-col w-1/4">
-                              Miêu tả
-                          </th>
-                          <th scope="col" class="table-col w-1/4">
-                              Địa chỉ
-                          </th>
-                          <th scope="col" class="table-col w-1/4">
-                              Ngày tạo bảng kê
+                              Giá trị
                           </th>
                           <th scope="col" class="table-col w-1/4">
                               Ghi chú
@@ -99,19 +93,13 @@
                               {{idx + 1}}
                           </td>
                           <td class="table-col w-[17.2%]">
-                              {{item.plCode}}
+                              {{item.poCode}}
                           </td>
                           <td class="table-col w-[17.2%]">
-                              {{item.dpCode}}
+                              {{item.contactCode}}
                           </td>
                           <td class="table-col w-[26%]">
-                              {{item.description}}
-                          </td>
-                          <td class="table-col w-[26%]">
-                              {{item.address}}
-                          </td>
-                          <td class="table-col w-[26%]">
-                              {{item.plDate}}
+                              {{item.value}}
                           </td>
                           <td class="table-col w-[26%]">
                               {{item.note}}

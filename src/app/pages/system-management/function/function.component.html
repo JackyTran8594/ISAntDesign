@@ -1,7 +1,7 @@
 <div class="content-wrapper">
   <div nz-row class="content-row">
       <div nz-col class="gutter-row" [nzSpan]="12">
-          <p><b>Danh sách bảng kê hàng hóa</b></p>
+          <p><b>Danh sách chức năng</b></p>
       </div>
       <div nz-col class="gutter-row" [nzSpan]="6" [nzOffset]="6">
           <div class="float-right">
@@ -71,22 +71,19 @@
                               #
                           </th>
                           <th scope="col" class="table-col w-1/6">
-                              Mã bảng kê
+                              Tên chức năng
                           </th>
                           <th scope="col" class="table-col w-1/6">
-                              Mã gói
+                              Mã chức năng
                           </th>
                           <th scope="col" class="table-col w-1/4">
-                              Miêu tả
+                              Mã hành động
                           </th>
                           <th scope="col" class="table-col w-1/4">
-                              Địa chỉ
+                              Mô tả
                           </th>
                           <th scope="col" class="table-col w-1/4">
-                              Ngày tạo bảng kê
-                          </th>
-                          <th scope="col" class="table-col w-1/4">
-                              Ghi chú
+                              Parent Code
                           </th>
                           <th scope="col" class="table-col-last w-1/4">
                               Hành động
@@ -99,22 +96,19 @@
                               {{idx + 1}}
                           </td>
                           <td class="table-col w-[17.2%]">
-                              {{item.plCode}}
+                              {{item.menuName}}
                           </td>
                           <td class="table-col w-[17.2%]">
-                              {{item.dpCode}}
+                              {{item.menuCode}}
+                          </td>
+                          <td class="table-col w-[17.2%]">
+                              {{item.actionCode}}
                           </td>
                           <td class="table-col w-[26%]">
                               {{item.description}}
                           </td>
                           <td class="table-col w-[26%]">
-                              {{item.address}}
-                          </td>
-                          <td class="table-col w-[26%]">
-                              {{item.plDate}}
-                          </td>
-                          <td class="table-col w-[26%]">
-                              {{item.note}}
+                              {{item.parentCode}}
                           </td>
                           <td class="table-col w-[24%]">
                               <div nz-row class="text-center">

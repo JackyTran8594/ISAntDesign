@@ -9,6 +9,8 @@ import { CustomerModule } from '../pages/customer-management/customer.module';
 import { DepartmentManagementModule } from '../pages/department-management/department-management.module';
 import { PackingListModule } from '../pages/contract-and-po/packing-list/packing-list.module';
 import { DeliveryPackageModule } from '../pages/contract-and-po/delivery-package/delivery-package.module';
+import { FunctionModule } from '../pages/system-management/function/function.module';
+import { BankGuaranteeModule } from '../pages/contract-and-po/bank-guarantee/bank-guarantee.module';
 
 const SERVICE = [
   HttpService
@@ -23,6 +25,8 @@ export const CORE_PROVIDERS = [
   DepartmentManagementModule.forRoot().providers,
   PackingListModule.forRoot().providers,
   DeliveryPackageModule.forRoot().providers,
+  FunctionModule.forRoot().providers,
+  BankGuaranteeModule.forRoot().providers,
 ]
 
 @NgModule({
