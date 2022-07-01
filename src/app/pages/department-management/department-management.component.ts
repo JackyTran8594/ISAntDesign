@@ -16,6 +16,7 @@ import { Department, DepartmentData } from './service/department';
 export class DepartmentManagementComponent implements OnInit {
 
   isCollapse: boolean = false;
+  checkedBoxAll: boolean = false;
 
   listData: Department[] = [];
   search: SearchParams = {
@@ -61,6 +62,20 @@ export class DepartmentManagementComponent implements OnInit {
     );
   }
 
+// checkbox
+  checkedAll(event: any) {
+    console.log(event);
+    this.listData.forEach((item) => {
+      item.isChecked = event;
+      // console.log(item.isChecked);
+    });
+  }
+
+  isChecked(event: any, index: number) {
+    this.listData[index].isChecked = event;
+    console.log(this.listData[index].isChecked);
+  }
+  // end checkbox
 
   changePageSize(event: any) {
     this.searchData()

@@ -13,6 +13,7 @@ export interface DeliveryPackage {
     provinceId?: number;
     dpDate?: Date;
     note?: string;
+    isChecked?: Boolean;
 }
 
 

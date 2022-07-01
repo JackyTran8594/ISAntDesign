@@ -25,6 +25,7 @@ import { ContractData } from './service/contract';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputNumberModule } from 'ng-zorro-antd/input-number';
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
 const API = [
   ContractApi
@@ -52,7 +53,8 @@ const MODULES = [
   NzPopconfirmModule,
   NzNotificationModule,
   NzFormModule,
-  NzInputNumberModule 
+  NzInputNumberModule,
+  NzCheckboxModule
 ]
 
 @NgModule({
@@ -64,7 +66,7 @@ const MODULES = [
     CommonModule,
     ContractRoutingModule,
     SharedModule,
-    // FormsModule,
+    FormsModule,
     ReactiveFormsModule,
     ...MODULES
   ]

@@ -14,6 +14,7 @@ export interface PeriodOrder {
     poDate?: Date;
     timeLine?: Date;
     note?: string;
+    isChecked?: Boolean;
 }
 
 

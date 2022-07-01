@@ -15,6 +15,7 @@ export interface Contract extends BaseObject {
     timeLine?: Date;
     guarantee?: string;
     note?: string;
+    isChecked?: Boolean;
 }
 
 export abstract class ContractData {

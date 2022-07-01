@@ -10,6 +10,7 @@ export interface PackingList {
     address?: string;
     plDate?: Date;
     note?: string;
+    isChecked?: Boolean;
 }
 
 

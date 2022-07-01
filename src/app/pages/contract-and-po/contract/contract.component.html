@@ -77,6 +77,10 @@
                     <table class="content-table-custom">
                         <thead class="border-b">
                             <tr>
+                                <th scope="col" class="table-col w-1/12">
+                                    <label nz-checkbox [ngModel]="checkedBoxAll"
+                                        (ngModelChange)="checkedAll($event)"></label>
+                                </th>
                                 <th scope="col" class="table-col">
                                     Checkbox
                                 </th>
@@ -102,7 +106,8 @@
                         </thead>
                         <tbody>
                             <tr class="border-b" *ngFor="let item of listData; let idx = index">
-                                <td class="table-col">Checkbox</td>
+                                <td class="table-col w-[8.5%]"><label nz-checkbox [ngModel]="item.isChecked"
+                                  (ngModelChange)="isChecked($event, idx)"></label> </td>
                                 <td class="table-col">
                                     {{idx + 1}}
                                 </td>

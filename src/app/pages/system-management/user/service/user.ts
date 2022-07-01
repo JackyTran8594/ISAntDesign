@@ -12,6 +12,7 @@ export interface User extends BaseObject {
     position?: string;
     note?: string;
     password?: string;
+    isChecked?: Boolean;
 }
 
 export abstract class UserData {

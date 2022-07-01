@@ -9,6 +9,7 @@ export interface BankGuarantee {
     value?: number;
     note?: string;
     contract_id?: number;
+    isChecked?: Boolean;
 }
 
 

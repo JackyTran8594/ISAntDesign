@@ -16,6 +16,7 @@ import { UserFrmComponent } from './user-frm/user-frm.component';
 export class UserComponent implements OnInit {
 
   isCollapse: boolean = false;
+  checkedBoxAll: boolean = false;
 
   listData: User[] = [];
   search: SearchParams = {
@@ -62,6 +63,21 @@ export class UserComponent implements OnInit {
       }
     );
   }
+
+  // checkbox
+  checkedAll(event: any) {
+    console.log(event);
+    this.listData.forEach((item) => {
+      item.isChecked = event;
+      // console.log(item.isChecked);
+    });
+  }
+
+  isChecked(event: any, index: number) {
+    this.listData[index].isChecked = event;
+    console.log(this.listData[index].isChecked);
+  }
+  // end checkbox
 
   onAllChecked(value: boolean): void {
   }

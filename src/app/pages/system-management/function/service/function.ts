@@ -9,6 +9,7 @@ export interface Function {
     actionCode?: string;
     description?: string;
     parentCode?: number;
+    isChecked?: Boolean;
 }
 
 

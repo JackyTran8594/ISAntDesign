@@ -8,6 +8,7 @@ export interface Department extends BaseObject {
     code?: string;
     description?: string;
     note?: string;
+    isChecked?: Boolean;
 }
 
 export abstract class DepartmentData {

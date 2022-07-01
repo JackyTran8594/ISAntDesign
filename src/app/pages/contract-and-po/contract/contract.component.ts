@@ -15,6 +15,7 @@ import { Contract, ContractData } from './service/contract';
 export class ContractComponent implements OnInit {
 
   isCollapse: boolean = false;
+  checkedBoxAll: boolean = false;
 
   listData: Contract[] = [];
   search: SearchParams = {
@@ -62,6 +63,21 @@ export class ContractComponent implements OnInit {
       );
   }
 
+  // checkbox
+  checkedAll(event: any) {
+    console.log(event);
+    this.listData.forEach((item) => {
+      item.isChecked = event;
+      // console.log(item.isChecked);
+    });
+  }
+
+  isChecked(event: any, index: number) {
+    this.listData[index].isChecked = event;
+    console.log(this.listData[index].isChecked);
+  }
+  // end checkbox
+
   onAllChecked(value: boolean): void {
   }
 
@@ -101,7 +117,7 @@ export class ContractComponent implements OnInit {
     this.modalService.create({
       nzTitle: 'Xem hợp đồng',
       nzContent: ContractFrmComponent,
-      
+
       nzCentered: true,
       nzMaskClosable: false,
       nzComponentParams: {

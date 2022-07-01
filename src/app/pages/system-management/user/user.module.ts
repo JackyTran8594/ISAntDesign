@@ -23,7 +23,7 @@ import { NzSpaceModule } from 'ng-zorro-antd/space';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserFrmComponent } from '../user/user-frm/user-frm.component';
-
+import { NzCheckboxModule } from 'ng-zorro-antd/checkbox';
 
 const API = [
   UserApi
@@ -51,6 +51,7 @@ const MODULES = [
   NzPopconfirmModule,
   NzNotificationModule,
   NzFormModule,
+  NzCheckboxModule
 ]
 
 @NgModule({
