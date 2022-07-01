@@ -55,9 +55,9 @@ export class FunctionFrmComponent implements OnInit {
       id: ['',[]],
       menuName: ['', [Validators.required]],
       menuCode: ['', [Validators.required]],
-      actionCode: ['', [Validators.required]],
+      actionCode: ['', []],
       description: ['', []],
-      parentCode: ['', [Validators.required]],
+      parentCode: ['', []],
     });
 
     if (this.mode != ModeModal.CREATE) {
